@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import  "./SignupPage.module.css";
+import "./SignupPage.css";
 import { useSignup } from "../../hooks/useSignup";
 import { useNavigate } from "react-router-dom";
 
@@ -53,12 +53,35 @@ const SignupPage = () => {
           value={dateofBirth}
         />
 
-        <label>Gender</label>
-        <input
-          type="gender"
-          onChange={(e) => setGender(e.target.value)}
-          value={gender}
-        />
+        <div>
+          <label htmlFor="">male</label>
+          <input type="radio" name="gender" value={gender}/>
+          <label htmlFor="">female</label>
+          <input type="radio" name="gender" value={gender}/>
+          <label htmlFor="">custiom</label>
+          <input type="radio" name="gender" value={gender}/>
+
+
+        </div>
+
+        {/* <div className="genderCon">
+          <label> Gender</label>
+          <div className="genderOptn">
+            <span>
+              <label>Female</label>
+              <input type="radio" placeholder="Female" />
+            </span>
+
+            <span>
+              <label>Male</label>
+              <input type="radio" placeholder="Male" />
+            </span>
+            <span>
+              <label>Custom</label>
+              <input type="radio" placeholder="Custom" />
+            </span>
+          </div>
+        </div> */}
 
         <label>City</label>
         <input
@@ -74,7 +97,7 @@ const SignupPage = () => {
           value={password}
         />
 
-        <button disabled={isLoading} className="signup">
+        <button disabled={isLoading} className="signBtn">
           Sign up
         </button>
         {error && <div className="error">{error}</div>}

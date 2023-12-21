@@ -1,0 +1,22 @@
+.navContainer {
+  margin: 6px 12px;
+  position: sticky;
+  text-align: center;
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+}
+.middleNav {
+  display: flex;
+  font-size: 26px;
+    gap: 65px;
+    margin: 20px 0px;
+    padding: 0px;
+}
+.endNav {
+  display: flex;
+}
+ul {
+  list-style: none;
+}
