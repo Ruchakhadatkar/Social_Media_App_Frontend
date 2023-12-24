@@ -1,0 +1,114 @@
+.right {
+  display: flex;
+  justify-content: end;
+  margin-right: 4px;
+}
+.RightCotainer {
+  height: 100%;
+  padding: 18px 20px;
+  padding-right: 0px;
+}
+.frindReq {
+  height: 50%;
+}
+.heding {
+  display: flex;
+  gap: 90px;
+}
+p.request {
+  font-size: 19px;
+  font-weight: 600;
+  margin-top: 2px;
+}
+.see {
+  font-size: 16px;
+  margin-top: 6px;
+  font-weight: 400;
+}
+.userreq {
+  display: flex;
+  margin-top: 8px;
+  gap: 14px;
+}
+.userreq img {
+  width: 50px;
+  border-radius: 50%;
+  height: 52px;
+  margin-left: 4px;
+}
+.name {
+  margin-left: 4px;
+}
+.user {
+  font-size: 19px;
+  font-weight: 600;
+  margin: 2px 0px;
+  text-align: left;
+}
+.mutual {
+  text-align: left;
+  margin: 0px;
+  font-size: 15px;
+}
+.btns {
+  display: flex;
+  margin: 10px 0;
+  margin-left: 72px;
+  gap: 12px;
+}
+.crnfm {
+  margin: 21px 0px;
+  margin-top: 9px;
+  height: 34px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  color: white;
+  background-color: #0866ff;
+  border: none;
+  cursor: pointer;
+}
+.delt {
+  margin: 21px 0px;
+  margin-top: 9px;
+  height: 34px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  /* color: #000; */
+  background-color: #d6d8dd;
+  /* border: 1px solid gray; */
+  cursor: pointer;
+}
+.findFreind {
+  height: 50%;
+}
+.head {
+  display: flex;
+  gap: 142px;
+}
+p.find {
+  font-size: 19px;
+  font-weight: 600;
+  margin-top: 2px;
+}
+.searchFrend {
+  font-size: 22px;
+  margin-top: 6px;
+  font-weight: 400;
+}
+.profileFrd {
+  display: flex;
+}
+.profileFrd img {
+  width: 50px;
+  border-radius: 50%;
+  height: 52px;
+  margin-left: 4px;
+}
+.userName {
+    font-size: 19px;
+    font-weight: 600;
+    margin: 2px 0px;
+    text-align: left;
+  }

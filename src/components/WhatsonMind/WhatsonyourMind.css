@@ -1,0 +1,91 @@
+.mainContainer {
+  /* border: 1px solid gray; */
+  padding: 18px 0px;
+  width: 98%;
+}
+.upper {
+  display: flex;
+  margin-top: 12px;
+}
+.upper input {
+  padding: 0px 13px;
+  margin: 5px 14px;
+  border-radius: 48px;
+  font-size: 17px;
+  height: 38px;
+  width: 100%;
+  margin-right: 4px;
+  background-color: #f0f2f5;
+  border: none;
+}
+.middle {
+  display: flex;
+  margin: 0px auto;
+  width: 33rem;
+  height: auto;
+  margin-left: 56px;
+}
+.middleUpper {
+  /* border: 1px solid gray; */
+  padding: 0px 12px;
+  padding-top: 1px;
+  background-color: white;
+  border-radius: 9px;
+  box-shadow: 0 4px 8px 0 rgba(98, 97, 97, 0.2),
+    0 6px 20px 0 rgba(231, 229, 229, 0.19);
+}
+.upper img {
+  width: 46px;
+  height: 48px;
+  cursor: pointer;
+}
+hr {
+  margin: 16px 7px;
+  width: 96%;
+  margin-left: 8px;
+  color: #f0f2f5;
+  opacity: 0.3;
+}
+.PostIcon {
+  display: flex;
+  margin: 8px 12px;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.activity {
+  display: flex;
+}
+.icon {
+  font-size: 25px;
+  cursor: pointer;
+}
+.activity p {
+  margin: 0px 8px;
+  margin-right: 0px;
+  font-size: 16px;
+  font-weight: 500;
+  color: gray;
+}
+button {
+  margin: 21px 0px;
+  margin-top: 9px;
+  width: 95%;
+  height: 36px;
+  border-radius: 48px;
+  font-size: 15px;
+  font-weight: 500;
+  color: gray;
+  background-color: #f0f2f5;
+  border: none;
+  cursor: pointer;
+}
+.videoLive {
+  color: red;
+}
+.photos {
+  color: rgb(5, 146, 2);
+}
+.smiley {
+  color: rgb(255, 162, 0);
+}

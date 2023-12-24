@@ -1,0 +1,29 @@
+.info {
+  display: flex;
+  margin: 18px 0px;
+  gap: 14px;
+}
+.info p {
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 8px;
+}
+.info img {
+  width: 38px;
+  height: 38px;
+}
+.messanger {
+  display: flex;
+  margin: 18px 0px;
+  gap: 14px;
+  margin-left: 4px;
+}
+.messanger p {
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 6px;
+}
+.messanger img {
+  width: 32px;
+  height: 33px;
+}

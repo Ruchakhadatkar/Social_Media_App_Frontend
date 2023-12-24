@@ -3,18 +3,27 @@ import "./Navbar.css";
 import { HiOutlineHome } from "react-icons/hi";
 import { MdOutlineOndemandVideo } from "react-icons/md";
 import { BiStore } from "react-icons/bi";
-import { GrGroup } from "react-icons/gr";
 import { BsMessenger } from "react-icons/bs";
 import { IoNotifications } from "react-icons/io5";
 import { CgMenuGridO } from "react-icons/cg";
+import { HiOutlineUserGroup } from "react-icons/hi";
 import profilePic from "../../Asset/profillePic.jpg";
+import { IoSearch } from "react-icons/io5";
 
 const Navbar = () => {
   return (
     <div className="navContainer">
       <div className="navbar">
-        <div className="appName">
+        <div className="startNav">
           <h4>Social</h4>
+          <div className="search">
+            <div className="searchBar">
+              <input type="text" placeholder="Search..." />
+              <div className="searchI">
+                <IoSearch />
+              </div>
+            </div>
+          </div>
         </div>
         <ul className="middleNav">
           <li className="home">
@@ -27,7 +36,7 @@ const Navbar = () => {
             <BiStore />
           </li>
           <li className="grp">
-            <GrGroup />
+            <HiOutlineUserGroup />
           </li>
         </ul>
         <ul className="endNav">
@@ -40,9 +49,9 @@ const Navbar = () => {
           <li className="message">
             <BsMessenger />
           </li>
-          <li className="profile">
-            <img src="profilePic" />
-          </li>
+          <div className="profile">
+            <img src={profilePic} />
+          </div>
         </ul>
       </div>
     </div>

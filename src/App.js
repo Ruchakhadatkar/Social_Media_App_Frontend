@@ -10,8 +10,8 @@ function App() {
     <div className="App">
       {/* <SignupPage/> */}
       {/* <LoginPage/> */}
-      {/* <HomePage /> */}
       <Navbar/>
+      <HomePage />
     </div>
   );
 }
