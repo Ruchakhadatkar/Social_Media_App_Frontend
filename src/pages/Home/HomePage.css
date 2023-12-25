@@ -1,11 +1,12 @@
 .homeContainer {
   padding: 18px 20px;
+  padding-right: 0px;
   display: flex;
   background-color: #f0f2f5;
   grid-gap: 2rem;
   display: grid;
   gap: 40px;
-  grid-template-columns: 14fr 22fr 15fr;
+  grid-template-columns: 13fr 22fr 16fr;
   justify-content: center;
   text-align: center;
 }

@@ -27,15 +27,57 @@ const RightHomebar = () => {
             <button className="delt">Delete</button>
           </div>
         </div>
+
+        <div className="req">
+          <div className="userInfo">
+            <div className="userreq">
+              {" "}
+              <img src={ProfilePic} />
+              <div className="name">
+                <p className="user">User Name</p>
+                <p className="mutual">11 mutual friends</p>
+              </div>
+            </div>
+          </div>
+          <div className="btns">
+            <button className="crnfm">Confirm</button>
+            <button className="delt">Delete</button>
+          </div>
+        </div>
+
+        <div className="req">
+          <div className="userInfo">
+            <div className="userreq">
+              {" "}
+              <img src={ProfilePic} />
+              <div className="name">
+                <p className="user">User Name</p>
+                <p className="mutual">11 mutual friends</p>
+              </div>
+            </div>
+          </div>
+          <div className="btns">
+            <button className="crnfm">Confirm</button>
+            <button className="delt">Delete</button>
+          </div>
+        </div>
       </div>
       <div className="findFriend">
         <div className="head">
           <p className="find">Find Friend</p>
           <IoSearch className="searchFrend" />
         </div>
-        <div className="profileFrd">
-          <img src={ProfilePic} />
-          <p className="userName">Tom & Jerry</p>
+        <div className="friendInfo">
+          <div className="profileFrd">
+            <img src={ProfilePic} />
+            <p className="userName">Tom & Jerry</p>
+          </div>
+        </div>
+        <div className="friendInfo">
+          <div className="profileFrd">
+            <img src={ProfilePic} />
+            <p className="userName">Tom & Jerry</p>
+          </div>
         </div>
       </div>
     </div>

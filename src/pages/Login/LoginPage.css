@@ -6,14 +6,17 @@
   margin: 120px 0px;
 }
 .login {
+  box-shadow: 0 4px 8px 0 rgba(88, 88, 88, 0.2),
+  0 6px 20px 0 rgba(231, 229, 229, 0.19);
   display: block;
   width: 26%;
-  border: 1px solid rgb(237, 236, 236);
+  /* border: 1px solid rgb(237, 236, 236);
   border-right: 2px solid  #e6e3e3;
-  border-bottom: 3px solid #e6e3e3;
-  border-radius: 6px;
+  border-bottom: 3px solid #e6e3e3; */
+  border-radius: 7px;
   padding: 46px;
   padding-top: 12px;
+  padding-bottom: 15px;
 }
 form h3 {
   text-align: center;
@@ -45,7 +48,6 @@ form input {
   border: none;
   border-radius: 5px;
   font-size: 17px;
-  line-height: 41px;
   padding: 0 16px;
   width: 100%;
   color: white;

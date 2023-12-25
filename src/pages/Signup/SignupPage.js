@@ -18,8 +18,10 @@ const SignupPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    console.log(name, contact, email, dateofBirth, gender, city, password)
     await signup(name, contact, email, dateofBirth, gender, city, password);
     // navigate("/");
+
   };
   return (
     <div className="signupContainer">
@@ -53,35 +55,35 @@ const SignupPage = () => {
           value={dateofBirth}
         />
 
-        <div>
-          <label htmlFor="">male</label>
-          <input type="radio" name="gender" value={gender}/>
-          <label htmlFor="">female</label>
-          <input type="radio" name="gender" value={gender}/>
-          <label htmlFor="">custiom</label>
-          <input type="radio" name="gender" value={gender}/>
-
-
-        </div>
-
-        {/* <div className="genderCon">
-          <label> Gender</label>
-          <div className="genderOptn">
-            <span>
-              <label>Female</label>
-              <input type="radio" placeholder="Female" />
-            </span>
-
-            <span>
-              <label>Male</label>
-              <input type="radio" placeholder="Male" />
-            </span>
-            <span>
-              <label>Custom</label>
-              <input type="radio" placeholder="Custom" />
-            </span>
+        <label>Gender</label>
+        <div className="genderType">
+          <label htmlFor="">Male</label>
+          <input
+            type="radio"
+            name="gender"
+            value="male"
+            className="radio"
+            onClick={(e) => setGender(e.target.value)}
+          />
+          <div className="female">
+            <label htmlFor="">Female</label>
+            <input
+              type="radio"
+              name="gender"
+              value="female"
+              className="radio"
+              onClick={(e) => setGender(e.target.value)}
+            />
           </div>
-        </div> */}
+          <label htmlFor="">Custom</label>
+          <input
+            type="radio"
+            name="gender"
+            value="custom"
+            className="radio"
+            onClick={(e) => setGender(e.target.value)}
+          />
+        </div>
 
         <label>City</label>
         <input

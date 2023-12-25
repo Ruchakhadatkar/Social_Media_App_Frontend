@@ -8,9 +8,9 @@ import Navbar from "./components/Navbar/Navbar";
 function App() {
   return (
     <div className="App">
-      {/* <SignupPage/> */}
-      {/* <LoginPage/> */}
-      <Navbar/>
+      <Navbar />
+      <SignupPage />
+      <LoginPage />
       <HomePage />
     </div>
   );

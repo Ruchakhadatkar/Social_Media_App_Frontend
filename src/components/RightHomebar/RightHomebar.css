@@ -1,7 +1,7 @@
 .right {
   display: flex;
   justify-content: end;
-  margin-right: 4px;
+  /* margin-right: 4px; */
 }
 .RightCotainer {
   height: 100%;
@@ -9,11 +9,26 @@
   padding-right: 0px;
 }
 .frindReq {
-  height: 50%;
+  height: 41%;
+  border-radius: 6px;
+  border-bottom: 2px solid rgb(178, 175, 175);
+  margin-bottom: 42px;
+  overflow: scroll;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  padding-right: 8px;
+}
+.req{
+  margin-bottom: 20px;
+  margin-top: 12px;
+  margin-bottom: 15px;
 }
 .heding {
   display: flex;
   gap: 90px;
+  margin-bottom: 14px;
+  margin-top: 2px;
+  color: gray;
 }
 p.request {
   font-size: 19px;
@@ -24,6 +39,7 @@ p.request {
   font-size: 16px;
   margin-top: 6px;
   font-weight: 400;
+  color: #0866ff;
 }
 .userreq {
   display: flex;
@@ -31,37 +47,35 @@ p.request {
   gap: 14px;
 }
 .userreq img {
-  width: 50px;
+  width: 47px;
   border-radius: 50%;
-  height: 52px;
-  margin-left: 4px;
-}
-.name {
+  height: 47px;
   margin-left: 4px;
 }
 .user {
-  font-size: 19px;
+  font-size: 17px;
   font-weight: 600;
-  margin: 2px 0px;
+  margin: 0px;
   text-align: left;
 }
 .mutual {
   text-align: left;
   margin: 0px;
   font-size: 15px;
+  color: gray;
 }
 .btns {
   display: flex;
-  margin: 10px 0;
+  margin:  0px;
   margin-left: 72px;
   gap: 12px;
 }
 .crnfm {
   margin: 21px 0px;
   margin-top: 9px;
-  height: 34px;
+  height: 33px;
   border-radius: 6px;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
   color: white;
   background-color: #0866ff;
@@ -71,21 +85,24 @@ p.request {
 .delt {
   margin: 21px 0px;
   margin-top: 9px;
-  height: 34px;
+  height: 33px;
   border-radius: 6px;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
-  /* color: #000; */
   background-color: #d6d8dd;
-  /* border: 1px solid gray; */
   cursor: pointer;
+  color: black;
 }
 .findFreind {
-  height: 50%;
+  height: 48%;
+  margin-top: 56px;
+  padding-left: 4px;
 }
 .head {
   display: flex;
   gap: 142px;
+  margin-bottom: 14px;
+  color: gray;
 }
 p.find {
   font-size: 19px;
@@ -96,19 +113,25 @@ p.find {
   font-size: 22px;
   margin-top: 6px;
   font-weight: 400;
+  color: gray;
 }
 .profileFrd {
   display: flex;
+  margin-top: 5px;
 }
 .profileFrd img {
-  width: 50px;
+  width: 45px;
   border-radius: 50%;
-  height: 52px;
+  height: 45px;
   margin-left: 4px;
 }
 .userName {
-    font-size: 19px;
-    font-weight: 600;
-    margin: 2px 0px;
-    text-align: left;
-  }
+  font-size: 17px;
+  font-weight: 600;
+  margin: 9px 13px;
+  text-align: left;
+}
+.friendInfo {
+  margin: 1px;
+  margin-bottom: 25px;
+}

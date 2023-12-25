@@ -5,13 +5,22 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 import { AuthContextProvider } from "./context/AuthContext";
+import { CloudinaryContext } from "cloudinary-react";
+
+const cloudinaryConfig = {
+  cloud_name: "ditqh6dqi",
+  api_key: "342268914234271",
+  api_secret: "ZzcpgFHfBR2wPKIfumVrgVDPzF4",
+};
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
       <AuthContextProvider>
-        <App />
+        <CloudinaryContext cloudName={cloudinaryConfig.cloud_name}>
+          <App />
+        </CloudinaryContext>
       </AuthContextProvider>
     </BrowserRouter>
   </React.StrictMode>

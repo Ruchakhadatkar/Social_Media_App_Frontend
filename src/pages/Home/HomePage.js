@@ -3,6 +3,7 @@ import "./HomePage.css";
 import WhatsonyourMind from "../../components/WhatsonMind/WhatsonyourMind";
 import RightHomebar from "../../components/RightHomebar/RightHomebar";
 import LeftHomebar from "../../components/LeftHomebar/LeftHomebar";
+import Post from "../../components/Post/Post";
 
 const HomePage = () => {
   return (
@@ -12,6 +13,7 @@ const HomePage = () => {
       </div>
       <div className="middle">
         <WhatsonyourMind />
+       
       </div>
       <div className="right">
         <RightHomebar />
