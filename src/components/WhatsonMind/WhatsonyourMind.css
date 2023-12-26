@@ -20,10 +20,11 @@
 }
 .middle {
   display: flex;
-  margin: 0px auto;
+  margin: 4.1rem auto;
   width: 33rem;
   height: auto;
-  margin-left: 56px;
+  margin-left: 26rem;
+  position: static;
 }
 .middleUpper {
   /* border: 1px solid gray; */
@@ -52,6 +53,7 @@ hr {
   justify-content: center;
   align-items: center;
   gap: 20px;
+  justify-content: space-evenly;
 }
 .activity {
   display: flex;
@@ -71,14 +73,14 @@ button {
   margin: 21px 0px;
   margin-top: 9px;
   width: 95%;
-  height: 36px;
-  border-radius: 48px;
-  font-size: 15px;
-  font-weight: 500;
-  color: gray;
-  background-color: #f0f2f5;
+  height: 34px;
+  border-radius: 7px;
   border: none;
   cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+  color: white;
+  background-color: #0866ff;
 }
 .videoLive {
   color: red;
@@ -88,4 +90,11 @@ button {
 }
 .smiley {
   color: rgb(255, 162, 0);
+}
+.preview {
+  box-sizing: border-box;
+  width: 100px;
+  height: 60px;
+  margin: 10px 0px;
+  border-radius: 4px;
 }

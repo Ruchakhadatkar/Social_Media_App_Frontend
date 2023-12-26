@@ -37,9 +37,8 @@ p.time {
 .listIcon {
   display: flex;
   margin-left: 14rem;
-  gap: 7px;
-  font-size: 22px;
-  padding: 0px 4px;
+  font-size: 24px;
+  padding: 0px 30px;
   padding-right: 0px;
   color: gray;
 }

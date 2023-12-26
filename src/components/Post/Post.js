@@ -1,7 +1,6 @@
 import React from "react";
 import "./Post.css";
 import { FaGlobeAmericas } from "react-icons/fa";
-import { MdOutlineClose } from "react-icons/md";
 import { FiMoreHorizontal } from "react-icons/fi";
 import { AiOutlineLike } from "react-icons/ai";
 import { FaRegComment } from "react-icons/fa";
@@ -21,7 +20,6 @@ const Post = () => {
         </div>
         <div className="listIcon">
           <FiMoreHorizontal className="more" />
-          <MdOutlineClose className="delet" />
         </div>
       </div>
       <div className="postDescrip">

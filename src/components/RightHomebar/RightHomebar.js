@@ -72,13 +72,45 @@ const RightHomebar = () => {
             <img src={ProfilePic} />
             <p className="userName">Tom & Jerry</p>
           </div>
+          <div className="btns">
+            <button className="addFrnd">Add Friend</button>
+            <button className="cancel">Cancel</button>
+          </div>
         </div>
+
         <div className="friendInfo">
           <div className="profileFrd">
             <img src={ProfilePic} />
             <p className="userName">Tom & Jerry</p>
           </div>
+          <div className="btns">
+            <button className="addFrnd">Add Friend</button>
+            <button className="cancel">Cancel</button>
+          </div>
         </div>
+
+        <div className="friendInfo">
+          <div className="profileFrd">
+            <img src={ProfilePic} />
+            <p className="userName">Tom & Jerry</p>
+          </div>
+          <div className="btns">
+            <button className="addFrnd">Add Friend</button>
+            <button className="cancel">Cancel</button>
+          </div>
+        </div>
+
+        <div className="friendInfo">
+          <div className="profileFrd">
+            <img src={ProfilePic} />
+            <p className="userName">Tom & Jerry</p>
+          </div>
+          <div className="btns">
+            <button className="addFrnd">Add Friend</button>
+            <button className="cancel">Cancel</button>
+          </div>
+        </div>
+       
       </div>
     </div>
   );

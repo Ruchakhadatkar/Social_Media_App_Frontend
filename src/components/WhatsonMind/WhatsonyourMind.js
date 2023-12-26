@@ -40,12 +40,23 @@ const WhatsonyourMind = () => {
         <div className="PostIcon">
           <div className=" activity">
             <IoVideocamSharp className="videoLive icon" />
-            <p>Live video</p>
+            <p>Video</p>
           </div>
-          <div className=" activity">
-            <MdOutlinePhotoLibrary className="photos icon" />
-            <p>Photo/Video</p>
-          </div>
+
+          <label htmlFor="photoPicker">
+            <div className=" activity">
+              <MdOutlinePhotoLibrary className="photos icon" />
+              <p>Photo</p>
+            </div>
+            <input
+              type="file"
+              name="photoPicker"
+              id="photoPicker"
+              onChange={handleImgUpload}
+              hidden
+            />
+          </label>
+
           <div className=" activity">
             <GoSmiley className="smiley icon" />
             <p>Feeling/Activity</p>
@@ -54,13 +65,12 @@ const WhatsonyourMind = () => {
 
         {image && (
           <div>
-            <Image publicId={image}>
-              <Transformation width="300" height="200" crop="fill" />
+            <Image publicId={image} className="preview">
+              <Transformation crop="fill" />
             </Image>
           </div>
         )}
         <button>Post</button>
-        <input type="file" onChange={handleImgUpload} />
       </div>
       <div className="postContainer"></div>
       <Post />

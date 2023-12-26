@@ -1,24 +1,27 @@
 .right {
   display: flex;
   justify-content: end;
-  /* margin-right: 4px; */
 }
 .RightCotainer {
   height: 100%;
   padding: 18px 20px;
   padding-right: 0px;
+  position: fixed;
+  z-index: 1;
+  top: 76px;
+  right: 0;
 }
 .frindReq {
   height: 41%;
   border-radius: 6px;
   border-bottom: 2px solid rgb(178, 175, 175);
-  margin-bottom: 42px;
+  margin-bottom: 36px;
   overflow: scroll;
   overflow-x: hidden;
   overflow-y: scroll;
   padding-right: 8px;
 }
-.req{
+.req {
   margin-bottom: 20px;
   margin-top: 12px;
   margin-bottom: 15px;
@@ -66,8 +69,8 @@ p.request {
 }
 .btns {
   display: flex;
-  margin:  0px;
-  margin-left: 72px;
+  margin: 0px;
+  margin-left: 65px;
   gap: 12px;
 }
 .crnfm {
@@ -93,10 +96,18 @@ p.request {
   cursor: pointer;
   color: black;
 }
-.findFreind {
-  height: 48%;
-  margin-top: 56px;
+.findFriend {
+  height: 39%;
+  margin-top: 30px;
   padding-left: 4px;
+  border-radius: 6px;
+  border-bottom: 2px solid rgb(178, 175, 175);
+  margin-bottom: 42px;
+  overflow: scroll;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  padding-right: 8px;
+  /* padding-bottom: 10px; */
 }
 .head {
   display: flex;
@@ -128,10 +139,50 @@ p.find {
 .userName {
   font-size: 17px;
   font-weight: 600;
-  margin: 9px 13px;
+  margin: 2px 13px;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
   text-align: left;
 }
 .friendInfo {
   margin: 1px;
-  margin-bottom: 25px;
+  margin-bottom: 18px;
+}
+.addF {
+  margin: 21px 20px;
+  margin-right: 0px;
+  margin-top: 9px;
+  height: 33px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: white;
+  background-color: #0866ff;
+  border: none;
+  cursor: pointer;
+  width: 32%;
+}
+.addFrnd {
+  border: 1px solid #0866ff;
+  margin: 21px 0px;
+  margin-top: 0px;
+  height: 33px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #0866ff;
+  background-color: #f0f2f5;
+  cursor: pointer;
+}
+.cancel {
+  border: 1px solid gray;
+  margin: 21px 0px;
+  margin-top: 0px;
+  height: 33px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  background-color: #f0f2f5;
+  cursor: pointer;
+  color: gray;
 }

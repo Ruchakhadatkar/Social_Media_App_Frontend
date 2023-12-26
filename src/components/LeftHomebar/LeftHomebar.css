@@ -1,3 +1,10 @@
+.left{
+  position: fixed;
+  z-index: 1;
+  top: 76px;
+  left: 15px;
+  /* right: 200rem; */
+}
 .info {
   display: flex;
   margin: 18px 0px;
