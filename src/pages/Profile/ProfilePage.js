@@ -14,6 +14,7 @@ const ProfilePage = () => {
           <div className="profile">
             <img src={ProfileImg} className="ProfileImage" />
             <p>User name</p>
+            <p className="totalFriends">Total Friends</p>
           </div>
           <div className="userInfo">
             <h3 className="heading">User Information</h3>
@@ -31,7 +32,7 @@ const ProfilePage = () => {
           </div>
           <div className="btn">
             <button className="friend">Friend</button>
-            <button className="unfriend">Unfriend</button>
+            <button className="change">Change Profile</button>
           </div>
         </div>
       </div>

@@ -1,6 +1,6 @@
 const initialState = {
-    user:  JSON.parse(localStorage.getItem("user")) || null
-}
+  user: JSON.parse(localStorage.getItem("user")) || null,
+};
 // useEffect(() => {
 //     const user = JSON.parse(localStorage.getItem("user"));
 
@@ -9,15 +9,15 @@ const initialState = {
 //     }
 //   }, []);
 
-export const userReducer = (state= initialState, action) => {
-    switch (action.type) {
-      case "LOGIN":
-        return { user: action.payload };
-  
-      case "LOGOUT":
-        return { user: null };
-  
-      default:
-        return state;
-    }
-  };
+export const userReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case "LOGIN":
+      return { user: action.payload };
+
+    case "LOGOUT":
+      return { user: null };
+
+    default:
+      return state;
+  }
+};

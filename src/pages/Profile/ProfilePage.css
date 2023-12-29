@@ -1,20 +1,20 @@
 .MainContainer {
-  margin: 70px 20px;
+  margin: 30px 20px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
 .profileContainer {
   /* border: 1px solid black; */
-  padding: 0px 12px;
-  padding-top: 1px;
+  padding: 0px 10px;
+  padding-top: 10px;
   background-color: white;
   border-radius: 9px;
   margin: 38px 0px;
   box-shadow: 0 4px 8px 0 rgba(98, 97, 97, 0.2),
     0 6px 20px 0 rgba(231, 229, 229, 0.19);
   width: 36%;
+  margin-right: 24px;
 }
 .background {
   box-sizing: border-box;
@@ -30,13 +30,13 @@
 .profileContainer .profile {
   margin: auto;
   position: relative;
-  top: 154px;
+  top: 150px;
   width: 100%;
 }
 .ProfileImage {
   box-sizing: border-box;
   width: 98px;
-  height: 94px;
+  height: 98px;
   border-radius: 50%;
 }
 .profile p {
@@ -44,41 +44,44 @@
   padding: 0px;
   margin: 0px;
   display: block;
-  font-weight: 700;
+  font-weight: 650;
 }
-.userInfo{
-  margin-top: 259px;
+.userInfo {
+  margin-top: 276px;
   text-align: left;
   margin-left: 16px;
 }
 h3.heading {
   font-size: 17px;
-  font-weight: 600;
-  margin: 12px 0;
+  font-weight: 650;
+  margin: 10px 0;
   font-size: 18px;
-  margin-top: 14px;
+  margin-top: 20px;
+  padding-top: 10px;
+  /* color: gray; */
 }
-.userInfo .info{
+.userInfo .info {
   display: flex;
-  gap: 32px;
+  gap: 34px;
   margin: 0px;
 }
-.userInfo .info span{
-  font-size: 17px;
+.userInfo .info span {
+  font-size: 16px;
   font-weight: 600;
-
+  color: gray;
 }
-.userInfo .info p{
-  font-size: 17px;
-  font-weight: 450;
+.userInfo .info p {
+  font-size: 16px;
+  font-weight: 500;
   margin-top: 0px;
 }
-.profileContainer .btn{
+.profileContainer .btn {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 50px;
-  margin: 0px 62px;
+  margin: 6px 62px;
+  margin-bottom: 8px;
 }
 .friend {
   margin: 21px 0px;
@@ -92,14 +95,22 @@ h3.heading {
   border: none;
   cursor: pointer;
 }
-.unfriend {
+.change {
+  border: 1px solid #0866ff;
   margin: 21px 0px;
   margin-top: 9px;
   height: 33px;
   border-radius: 6px;
   font-size: 14px;
   font-weight: 600;
-  background-color: #d6d8dd;
+  color: #0866ff;
+  background-color: rgb(249, 249, 249);
+  /* border: none; */
   cursor: pointer;
-  color: black;
+}
+p.totalFriends {
+  font-size: 14px;
+  font-weight: 500;
+  color: gray;
+  margin-bottom: 0px;
 }
