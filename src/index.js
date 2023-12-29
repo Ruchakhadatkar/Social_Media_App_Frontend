@@ -6,6 +6,8 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 import { AuthContextProvider } from "./context/AuthContext";
 import { CloudinaryContext } from "cloudinary-react";
+import { Provider } from "react-redux";
+import { store } from "./Redux/store";
 
 const cloudinaryConfig = {
   cloud_name: "ditqh6dqi",
@@ -16,13 +18,15 @@ const cloudinaryConfig = {
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
+    <Provider store={store}>
     <BrowserRouter>
-      <AuthContextProvider>
+      {/* <AuthContextProvider> */}
         <CloudinaryContext cloudName={cloudinaryConfig.cloud_name}>
           <App />
         </CloudinaryContext>
-      </AuthContextProvider>
+      {/* </AuthContextProvider> */}
     </BrowserRouter>
+    </Provider>
   </React.StrictMode>
 );
 

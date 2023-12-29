@@ -7,13 +7,14 @@
   position: fixed;
   top: 0;
   width: 100%;
-  background-color: #f0f2f5;
-  overflow: hidden;
+  background-color: white;
+  /* overflow: hidden; */
+  z-index: 4;
 }
 .navbar {
   display: flex;
   /* justify-content: space-between; */
-  background-color: #f0f2f5;
+  background-color: white;
 }
 .startNav {
   display: flex;

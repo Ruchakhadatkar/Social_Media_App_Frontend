@@ -9,8 +9,10 @@
   grid-template-columns: 13fr 22fr 16fr;
   justify-content: center;
   text-align: center;
+  /* z-index: 1; */
+  position: relative;
 }
 .middle{
-  position: relative;
+  /* position: relative; */
 }
 

@@ -1,17 +1,20 @@
 import { useState } from "react";
 import {useAuthContext} from './useAuthContext'
+import { useDispatch } from "react-redux";
+import { LOGIN } from "../Redux/User/userTypes";
 
 
 export const useLogin = () => {
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(null);
-  const { dispatch } = useAuthContext();
+  // const { dispatch } = useAuthContext();
+  const dispatch = useDispatch()
 
   const login = async (email, password) => {
     setIsLoading(true);
     setError(null);
 
-    const response = await fetch("http://localhost:4000/api/user/login", {
+    const response = await fetch("/api/user/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -19,7 +22,6 @@ export const useLogin = () => {
       body: JSON.stringify({ email, password }),
     });
     const json = await response.json();
-    console.log(json)
 
     if (!response.ok) {
       setIsLoading(false);
@@ -30,7 +32,7 @@ export const useLogin = () => {
       localStorage.setItem("user", JSON.stringify(json));
 
       //update the auth context
-      dispatch({ type: "LOGIN", payload: json });
+      dispatch({ type: LOGIN, payload: json });
 
       setIsLoading(false);
     }

@@ -4,14 +4,16 @@ import SignupPage from "./pages/Signup/SignupPage";
 import LoginPage from "./pages/Login/LoginPage";
 import HomePage from "./pages/Home/HomePage";
 import Navbar from "./components/Navbar/Navbar";
+import ProfilePage from "./pages/Profile/ProfilePage";
 
 function App() {
   return (
     <div className="App">
       <Navbar />
-      {/* <SignupPage />
-      <LoginPage /> */}
+      <SignupPage />
+      <LoginPage />
       <HomePage />
+      <ProfilePage/>
     </div>
   );
 }

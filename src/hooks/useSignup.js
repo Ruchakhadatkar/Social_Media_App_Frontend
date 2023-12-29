@@ -1,10 +1,13 @@
 import { useState } from "react";
 import { useAuthContext } from "./useAuthContext";
+import { useDispatch } from "react-redux";
+import { LOGIN } from "../Redux/User/userTypes";
 
 export const useSignup = () => {
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(null);
-  const { dispatch } = useAuthContext();
+  // const { dispatch } = useAuthContext();
+  const dispatch = useDispatch()
 
   const signup = async (
     name,
@@ -18,7 +21,7 @@ export const useSignup = () => {
     setIsLoading(true);
     setError(null);
 
-    const response = await fetch("http://localhost:4000/api/user/signup", {
+    const response = await fetch("/api/user/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -45,7 +48,7 @@ export const useSignup = () => {
       localStorage.setItem("user", JSON.stringify(json));
 
       //update the auth context
-      dispatch({ type: "LOGIN", payload: json });
+      dispatch({ type:LOGIN, payload: json });
 
       setIsLoading(false);
     }

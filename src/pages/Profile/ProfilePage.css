@@ -1,0 +1,105 @@
+.MainContainer {
+  margin: 70px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profileContainer {
+  /* border: 1px solid black; */
+  padding: 0px 12px;
+  padding-top: 1px;
+  background-color: white;
+  border-radius: 9px;
+  margin: 38px 0px;
+  box-shadow: 0 4px 8px 0 rgba(98, 97, 97, 0.2),
+    0 6px 20px 0 rgba(231, 229, 229, 0.19);
+  width: 36%;
+}
+.background {
+  box-sizing: border-box;
+  position: absolute;
+  width: 35%;
+  height: 28%;
+}
+.background img {
+  width: 100%;
+  height: 100%;
+  border-radius: 0px;
+}
+.profileContainer .profile {
+  margin: auto;
+  position: relative;
+  top: 154px;
+  width: 100%;
+}
+.ProfileImage {
+  box-sizing: border-box;
+  width: 98px;
+  height: 94px;
+  border-radius: 50%;
+}
+.profile p {
+  font-size: 23px;
+  padding: 0px;
+  margin: 0px;
+  display: block;
+  font-weight: 700;
+}
+.userInfo{
+  margin-top: 259px;
+  text-align: left;
+  margin-left: 16px;
+}
+h3.heading {
+  font-size: 17px;
+  font-weight: 600;
+  margin: 12px 0;
+  font-size: 18px;
+  margin-top: 14px;
+}
+.userInfo .info{
+  display: flex;
+  gap: 32px;
+  margin: 0px;
+}
+.userInfo .info span{
+  font-size: 17px;
+  font-weight: 600;
+
+}
+.userInfo .info p{
+  font-size: 17px;
+  font-weight: 450;
+  margin-top: 0px;
+}
+.profileContainer .btn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  margin: 0px 62px;
+}
+.friend {
+  margin: 21px 0px;
+  margin-top: 9px;
+  height: 33px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  color: white;
+  background-color: #0866ff;
+  border: none;
+  cursor: pointer;
+}
+.unfriend {
+  margin: 21px 0px;
+  margin-top: 9px;
+  height: 33px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  background-color: #d6d8dd;
+  cursor: pointer;
+  color: black;
+}

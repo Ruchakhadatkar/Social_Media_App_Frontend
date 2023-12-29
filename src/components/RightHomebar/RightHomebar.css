@@ -21,6 +21,9 @@
   overflow-y: scroll;
   padding-right: 8px;
 }
+.frindReq .userInfo{
+  margin-top: 16px;
+}
 .req {
   margin-bottom: 20px;
   margin-top: 12px;
@@ -101,7 +104,7 @@ p.request {
   margin-top: 30px;
   padding-left: 4px;
   border-radius: 6px;
-  border-bottom: 2px solid rgb(178, 175, 175);
+  /* border-bottom: 2px solid rgb(178, 175, 175); */
   margin-bottom: 42px;
   overflow: scroll;
   overflow-x: hidden;

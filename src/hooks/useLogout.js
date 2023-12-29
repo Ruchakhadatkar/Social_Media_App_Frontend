@@ -1,9 +1,10 @@
+import { useDispatch } from "react-redux";
 import { useAuthContext } from "./useAuthContext";
 import { useWorkoutContext } from "./useWorkoutsContext";
+import { LOGOUT } from "../Redux/User/userTypes";
 
 const useLogout = () => {
-  const { dispatch } = useAuthContext();
-  const { dispatch: workoutDispatch } = useWorkoutContext();
+  const dispatch = useDispatch()  
 
   const logout = () => {
     //remove user from storage
@@ -11,8 +12,8 @@ const useLogout = () => {
     localStorage.removeItem("user");
 
     //dispatch logout action
-    dispatch({ type: "LOGOUT" });
-    workoutDispatch({ type: "SET WORKOUT", payload: null });
+    dispatch({ type: LOGOUT });
+
   };
   return { logout };
 };
