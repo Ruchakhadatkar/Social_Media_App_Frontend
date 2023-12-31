@@ -1,10 +1,9 @@
 import { useDispatch } from "react-redux";
-import { useAuthContext } from "./useAuthContext";
-import { useWorkoutContext } from "./useWorkoutsContext";
 import { LOGOUT } from "../Redux/User/userTypes";
+import { AuthContext } from "../context/AuthContext";
 
 const useLogout = () => {
-  const dispatch = useDispatch()  
+  const dispatch = useDispatch();
 
   const logout = () => {
     //remove user from storage
@@ -13,7 +12,6 @@ const useLogout = () => {
 
     //dispatch logout action
     dispatch({ type: LOGOUT });
-
   };
   return { logout };
 };

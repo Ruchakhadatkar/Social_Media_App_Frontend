@@ -61,6 +61,7 @@ const RightHomebar = () => {
           <p className="request">Friend Request</p>
           <p className="see">See All</p>
         </div>
+        {friendRequest.length == 0 && <h3>No friend request</h3>}
         {friendRequest.map((request) => {
           return (
             <div className="req">

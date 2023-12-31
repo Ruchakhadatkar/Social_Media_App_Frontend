@@ -20,7 +20,7 @@ const SignupPage = () => {
 
     console.log(name, contact, email, dateofBirth, gender, city, password)
     await signup(name, contact, email, dateofBirth, gender, city, password);
-    // navigate("/");
+    navigate("/");
 
   };
   return (

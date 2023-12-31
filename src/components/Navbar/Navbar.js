@@ -9,8 +9,23 @@ import { CgMenuGridO } from "react-icons/cg";
 import { HiOutlineUserGroup } from "react-icons/hi";
 import profilePic from "../../Asset/profillePic.jpg";
 import { IoSearch } from "react-icons/io5";
+import { useAuthContext } from "../../hooks/useAuthContext";
+import { useNavigate, Link } from "react-router-dom";
+import useLogout from "../../hooks/useLogout";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
+  // const { logout } = useLogout()
+  // const { user } = useAuthContext()
+  // const navigate = useNavigate()
+
+  // const handkeClick = () => {
+  //   logout();
+  //   navigate("/login")
+  // };
+
+  const {user}= useSelector(state=>state.user)
+
   return (
     <div className="navContainer">
       <div className="navbar">
@@ -49,13 +64,75 @@ const Navbar = () => {
           <li className="message">
             <BsMessenger />
           </li>
-          <div className="profile">
-            <img src={profilePic} />
+          <div class="dropdown">
+            <span>
+              <div className="profile">
+                <img src={profilePic} />
+              </div>
+            </span>
+            <div class="dropdown-content">
+              <Link
+                to={`/profile/${user.id}`}
+                style={{ textDecoration: "none", color: "gray" }}
+              >
+                <h3 className="drop">Profile</h3>
+              </Link>
+
+              <Link
+                to="/signup"
+                style={{ textDecoration: "none", color: "gray" }}
+              >
+                <h3 className="drop">Logout</h3>
+              </Link>
+            </div>
           </div>
+
+          {/* <div className="profile">
+            <img src={profilePic} />
+          </div> */}
         </ul>
       </div>
+      {/* <div className="signLogin">
+        {user && (
+          <div>
+            <button onClick={handkeClick} className="logout">
+              Log out
+            </button>
+          </div>
+        )}
+        {!user && (
+          <div>
+            <Link
+              to={"/signup"}
+              style={{ textDecoration: "none", color: "black" }}
+            >
+              Sign up
+            </Link>
+            <Link
+              to={"/login"}
+              style={{ textDecoration: "none", color: "black" }}
+            >
+              Log in
+            </Link>
+          </div>
+        )}
+      </div> */}
     </div>
   );
 };
 
 export default Navbar;
+
+{
+  /* <div class="dropdown">
+  <span>
+    <div className="profile">
+      <img src={profilePic} />
+    </div>
+  </span>
+  <div class="dropdown-content">
+    <p>View Profile</p>
+    <p>Logout</p>
+  </div>
+</div>; */
+}

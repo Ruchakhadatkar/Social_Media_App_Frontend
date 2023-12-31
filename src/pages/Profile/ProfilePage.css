@@ -3,6 +3,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 70px;
 }
 .profileContainer {
   /* border: 1px solid black; */
@@ -79,9 +80,10 @@ h3.heading {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 50px;
+  gap: 10px;
   margin: 6px 62px;
   margin-bottom: 8px;
+  /* width: 75%; */
 }
 .friend {
   margin: 21px 0px;
@@ -94,6 +96,7 @@ h3.heading {
   background-color: #0866ff;
   border: none;
   cursor: pointer;
+  width: 36%;
 }
 .change {
   border: 1px solid #0866ff;
@@ -107,6 +110,8 @@ h3.heading {
   background-color: rgb(249, 249, 249);
   /* border: none; */
   cursor: pointer;
+  width: 8rem;
+
 }
 p.totalFriends {
   font-size: 14px;

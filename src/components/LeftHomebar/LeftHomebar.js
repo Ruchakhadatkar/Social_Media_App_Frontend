@@ -10,14 +10,18 @@ import event from "../../Asset/events.png";
 import feed from "../../Asset/feed.png";
 import ads from "../../Asset/graph.png";
 import messenger from "../../Asset/download.jpg";
+import { Link } from "react-router-dom";
 
 const LeftHomebar = () => {
   return (
     <div className="left">
-      <div className="user info">
-        <img src={profilePic} />
-        <p>User Name</p>
-      </div>
+      <Link to="/profile" style={{ textDecoration: "none", color: "black" }}>
+        <div className="user info">
+          <img src={profilePic} />
+          <p>User Name</p>
+        </div>
+      </Link>
+
       <div className="friends info ">
         <img src={friends} />
         <p>Friends </p>
