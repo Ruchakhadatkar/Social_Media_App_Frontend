@@ -1,6 +1,5 @@
 import { useDispatch } from "react-redux";
 import { LOGOUT } from "../Redux/User/userTypes";
-import { AuthContext } from "../context/AuthContext";
 
 const useLogout = () => {
   const dispatch = useDispatch();

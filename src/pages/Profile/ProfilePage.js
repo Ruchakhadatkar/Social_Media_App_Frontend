@@ -9,22 +9,20 @@ import { BsTypeH1 } from "react-icons/bs";
 const ProfilePage = () => {
   const { id } = useParams();
   const [profileInfo, setProfileInfo] = useState(null);
-  if (profileInfo) {
-    const { friends, post, user } = profileInfo;
-  }
+
   const [image, setImage] = useState(null);
   const [isImageUploading, setIsImageUploading] = useState(false);
 
   useEffect(() => {
     getUserInfo();
-  }, []);
+  }, [id]);
   const getUserInfo = async () => {
     const data = await axios.get(`/api/user/userInfo/${id}`);
     console.log(data);
     setProfileInfo(data.data);
   };
   const handleImgUpload = async (e) => {
-    // setIsImageUploading(true)
+    setIsImageUploading(true);
     console.log("Working", isImageUploading);
     if (isImageUploading == true) {
       return window.alert("Image is uploading");
@@ -44,17 +42,18 @@ const ProfilePage = () => {
     console.log(data);
     setImage(data.secure_url);
     setIsImageUploading(false);
+    const uploaddp = await uploadProfilePicture(data.secure_url);
   };
 
-  const uploadProfilePicture = async () => {
+  const uploadProfilePicture = async (img) => {
     const data = await axios.put(`/api/user/${id}`, {
-      profilePicture: image,
+      profilePicture: img,
     });
-    console.log(data);
+    getUserInfo();
   };
   return (
     <>
-      {!profileInfo ? <h1>Loading...</h1> : <></>}
+      {!profileInfo && <h1>Loading...</h1>}
       {profileInfo && (
         <div className="MainContainer">
           <div className="profileContainer">
@@ -62,22 +61,27 @@ const ProfilePage = () => {
               <img src={backgroundImg} className="backgroundImg" />
             </div>
             <div className="profile">
-              <img src={ProfileImg} className="ProfileImage" />
-              <p>user Name</p>
-              <p className="totalFriends">Total Friends: </p>
+              <img
+                src={profileInfo.user.profilePicture}
+                className="ProfileImage"
+              />
+              <p>{profileInfo.user.name}</p>
+              <p className="totalFriends">
+                Total Friends:{profileInfo.friends.length}{" "}
+              </p>
             </div>
             <div className="userInfo">
               <h3 className="heading">User Information</h3>
               <div className="info">
                 <p>
-                  <span>City :</span> aaaaaa
+                  <span>City : </span> {profileInfo.user.city}
                 </p>
                 <p>
-                  <span>DOB :</span> 00/00/00
+                  <span>DOB :</span> {profileInfo.user.dateofBirth}
                 </p>
                 <p>
                   <span>Contact :</span>
-                  000000
+                  {profileInfo.user.contact}
                 </p>
               </div>
             </div>
@@ -92,7 +96,7 @@ const ProfilePage = () => {
                   onChange={(e) => {
                     handleImgUpload(e);
                   }}
-                  hidden
+                  // hidden
                 />
               </label>
             </div>

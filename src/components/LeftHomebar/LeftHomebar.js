@@ -11,14 +11,17 @@ import feed from "../../Asset/feed.png";
 import ads from "../../Asset/graph.png";
 import messenger from "../../Asset/download.jpg";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const LeftHomebar = () => {
+  const {user} = useSelector(state=>state.user)
+  console.log(user)
   return (
     <div className="left">
-      <Link to="/profile" style={{ textDecoration: "none", color: "black" }}>
+      <Link to={`/profile/${user.id}`} style={{ textDecoration: "none", color: "black" }}>
         <div className="user info">
-          <img src={profilePic} />
-          <p>User Name</p>
+          <img src={user.profilePicture} />
+          <p>{user.name}</p>
         </div>
       </Link>
 

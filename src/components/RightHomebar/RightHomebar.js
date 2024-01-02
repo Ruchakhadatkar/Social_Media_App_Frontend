@@ -3,17 +3,20 @@ import "./RightHomebar.css";
 import ProfilePic from "../../Asset/profillePic.jpg";
 import { IoSearch } from "react-icons/io5";
 import axios from "axios";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { FETCH_POSTS } from "../../Redux/Posts/postsTypes";
 
 const RightHomebar = () => {
   const [findFriends, setFindFriends] = useState([]);
   const [friendRequest, setFriendRequest] = useState([]);
 
-  const user = useSelector((state) => state.user.user);
-  console.log(user);
+  const { user } = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+
   const fetchFindFriend = async () => {
     const data = await axios.get(`/api/friendRequest/findFriend?id=${user.id}`);
-    console.log(data);
     setFindFriends(data.data.data);
   };
 
@@ -22,14 +25,23 @@ const RightHomebar = () => {
     getAllFriendRequest();
   }, []);
 
-  const sendFriendRequest = async (userId) => {
+  const getAllPost = async () => {
+    const data = await axios.get(`/api/post?id=${user.id}`);
+    console.log(data.data);
+    dispatch({ type: FETCH_POSTS, payload: data.data });
+    getAllFriendRequest();
+  };
+
+  const sendFriendRequest = async (friend) => {
     const data = await axios.post(`/api/friendRequest`, {
       senderUserId: user.id,
-      receiverUserId: userId,
+      receiverUserId: friend._id,
       status: "pending",
     });
-    fetchFindFriend()
-    console.log(data);
+    toast(`Friend reaquest sent to ${friend.name}`);
+    fetchFindFriend();
+    getAllFriendRequest();
+    getAllPost();
   };
 
   const getAllFriendRequest = async () => {
@@ -42,16 +54,15 @@ const RightHomebar = () => {
     const data = await axios.put(`/api/friendRequest`, {
       reqId: friendRequestId,
       status: "accepted",
-    })
-    getAllFriendRequest()
-    console.log(data);
+    });
+    getAllPost();
   };
 
   const declineFriendRequest = async (deleteRequestId) => {
-    console.log(deleteRequestId)
-    const data = await axios.delete(`/api/friendRequest/${deleteRequestId}`)
-    getAllFriendRequest()
-    console.log(data)
+    console.log(deleteRequestId);
+    const data = await axios.delete(`/api/friendRequest/${deleteRequestId}`);
+    console.log(data);
+    getAllPost();
   };
 
   return (
@@ -64,7 +75,7 @@ const RightHomebar = () => {
         {friendRequest.length == 0 && <h3>No friend request</h3>}
         {friendRequest.map((request) => {
           return (
-            <div className="req">
+            <div className="req" key={request._id}>
               <div className="userInfo">
                 <div className="userreq">
                   {" "}
@@ -138,7 +149,7 @@ const RightHomebar = () => {
         </div>
         {findFriends.map((friend) => {
           return (
-            <div className="friendInfo">
+            <div className="friendInfo" key={friend._id}>
               <div className="profileFrd">
                 <img src={ProfilePic} />
                 <p className="userName">{friend.name}</p>
@@ -147,7 +158,7 @@ const RightHomebar = () => {
                 <button
                   className="addFrnd"
                   onClick={() => {
-                    sendFriendRequest(friend._id);
+                    sendFriendRequest(friend);
                   }}
                 >
                   Add Friend
@@ -191,6 +202,7 @@ const RightHomebar = () => {
           </div>
         </div> */}
       </div>
+      <ToastContainer />
     </div>
   );
 };
