@@ -52,3 +52,19 @@ form input {
   margin-top: 5px;
   cursor: pointer;
 }
+.line{
+  margin: 0px;
+  margin-top: 7px;
+}
+.newAccount {
+  background-color: #00a400;
+  border: none;
+  border-radius: 5px;
+  font-size: 15px;
+  padding: 0 16px;
+  width: 100%;
+  color: white;
+  font-weight: 700;
+  margin-top: 24px;
+  cursor: pointer;
+}

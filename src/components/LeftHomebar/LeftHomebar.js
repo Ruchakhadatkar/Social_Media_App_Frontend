@@ -14,7 +14,7 @@ import { useSelector } from "react-redux";
 
 const LeftHomebar = () => {
   const { user } = useSelector((state) => state.user);
-  console.log(user);
+  // console.log(user);
   return (
     <div className="left">
       <Link

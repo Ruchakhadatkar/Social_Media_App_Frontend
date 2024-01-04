@@ -21,7 +21,13 @@ const ProfilePage = () => {
   }, [id]);
 
   const getUserInfo = async () => {
-    const data = await axios.get(`/api/user/userInfo/${id}`);
+    const data = await axios.get(`/api/user/userInfo/${id}`,
+    {
+      headers: {
+        Accept: "application/json",
+        Authorization: `Bearer ${user.token}`,
+      },
+    },);
     console.log(data);
     setProfileInfo(data.data);
   };
@@ -53,7 +59,13 @@ const ProfilePage = () => {
   const uploadProfilePicture = async (img) => {
     const data = await axios.put(`/api/user/${id}`, {
       profilePicture: img,
-    });
+    },
+    {
+      headers: {
+        Accept: "application/json",
+        Authorization: `Bearer ${user.token}`,
+      },
+    },);
     const temp = {
       name: user.name,
       email: user.email,

@@ -10,14 +10,12 @@ function App() {
 
   const PrivateRoutes = () => {
     const user = JSON.parse(localStorage.getItem("user"));
-    console.log("privateRoute", user);
     let auth = { token: user ? true : false };
     return auth.token ? <Outlet /> : <Navigate to="/login" />;
   };
 
   const PublicRoutes = () => {
     const user = JSON.parse(localStorage.getItem("user"));
-    console.log("Public", user);
     let auth = { token: user ? true : false };
     console.log(auth);
     return !auth.token ? <Outlet /> : <Navigate to="/" />;

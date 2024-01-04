@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import "./LoginPage.css";
 import { useLogin } from "../../hooks/useLogin";
-import { Navigate, useNavigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
@@ -36,6 +36,10 @@ const LoginPage = () => {
         <button disabled={isLoading} className="loginBtn">
           Login
         </button>
+        <hr className="line"/>
+        <Link to={"/signup"}>
+        <button className="newAccount">Create New Account</button>
+        </Link>
         {error && <div className="error">{error}</div>}
       </form>
     </div>

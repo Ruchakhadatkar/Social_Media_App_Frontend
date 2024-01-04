@@ -19,35 +19,67 @@ const Post = () => {
   const [pageNo, setPageNo] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
   const dispatch = useDispatch();
+  const [flag, setFlag] = useState(true);
 
   useEffect(() => {
     getAllPost();
   }, [pageNo, user]);
-  console.log(user);
+  // console.log(user);
 
   const getAllPost = async () => {
     setIsLoading(true);
+    console.log("getallpostRunning")
     const data = await axios.get(
-      `/api/post?id=${user.id}&limit=5&skip=${pageNo * 5}`
+      `/api/post?id=${user.id}&limit=5&skip=${pageNo * 5}`,
+      {
+        headers: {
+          Accept: "application/json",
+          Authorization: `Bearer ${user.token}`,
+        },
+      }
     );
+    console.log(data)
     // setPosts(data.data);
     dispatch({ type: FETCH_POSTS, payload: [...posts, ...data.data] });
     setIsLoading(false);
   };
 
   const likePost = async (postId) => {
-    const data = await axios.post(`/api/likes`, {
-      userId: user.id,
-      postId: postId,
-    });
-    getAllPost();
+    const data = await axios.post(
+      `/api/likes`,
+      {
+        userId: user.id,
+        postId: postId,
+      },
+      {
+        headers: {
+          // Accept: "application/json",
+          Authorization: `Bearer ${user.token}`,
+        },
+      }
+    
+    );
+    console.log(data)
+    // setFlag((prev) => !prev);
+    // if(data.data.success == true){
+      getAllPost()
+    // }
   };
 
   const disLikePost = async (postId) => {
     const data = await axios.delete(
-      `/api/likes?userId=${user.id}&postId=${postId}`
+      `/api/likes?userId=${user.id}&postId=${postId}`,
+      {
+        headers: {
+          // Accept: "application/json",
+          Authorization: `Bearer ${user.token}`,
+        },
+      }
     );
-    getAllPost();
+    // setFlag((prev) => !prev);
+    // if(data.data.success == true){
+      getAllPost()
+    // }
   };
 
   const checkedLikePost = (likedUsers) => {
@@ -109,7 +141,7 @@ const Post = () => {
                   }}
                 >
                   <AiOutlineLike className="icon" style={{ color: "blue" }} />
-                  <p>Dislike</p>
+                  <p>Like</p>
                   {post.likedUsers.length}
                 </div>
               ) : (
@@ -133,7 +165,7 @@ const Post = () => {
         );
       })}
       {isLoading && <Skeleton count={2} highlightColor="black" />}
-      <h3 style={{ marginTop: "50px", fontWeight:"500" }}>No more posts</h3>
+      <h3 style={{ marginTop: "50px", fontWeight: "500" }}>No more posts</h3>
     </>
   );
 };

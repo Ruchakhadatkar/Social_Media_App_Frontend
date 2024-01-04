@@ -49,13 +49,25 @@ const WhatsonyourMind = () => {
       caption: caption,
       image: image,
       userId: user.id,
-    });
+    },
+    {
+      headers: {
+        Accept: "application/json",
+        Authorization: `Bearer ${user.token}`,
+      },
+    },);
     setCaption("");
     getAllPost();
   };
 
   const getAllPost = async () => {
-    const data = await axios.get(`/api/post?id=${user.id}`);
+    const data = await axios.get(`/api/post?id=${user.id}&limit=5&skip=0`,
+    {
+      headers: {
+        Accept: "application/json",
+        Authorization: `Bearer ${user.token}`,
+      },
+    },);
     // console.log(data.data);
     dispatch({ type: FETCH_POSTS, payload: data.data });
   };

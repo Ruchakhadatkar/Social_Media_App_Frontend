@@ -78,12 +78,22 @@ form.signup input.radio {
   height: 15px;
 }
 .signBtn {
-  height: 40px;
+  height: 37px;
   border-radius: 5px;
-  width: 175px;
-  font-size: 16px;
+  width: 100%;
+  font-size: 15px;
   font-weight: 600;
   background-color: #00a400;
   color: white;
   border: none;
+  margin-top: 10px;
+}
+.already{
+  font-weight: 400;
+    font-size: 16px;
+}
+.loginSpan{
+  font-weight: 600;
+  font-size: 17px;
+  color: #1877f2;
 }

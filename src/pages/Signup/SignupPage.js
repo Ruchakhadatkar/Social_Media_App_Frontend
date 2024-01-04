@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import "./SignupPage.css";
 import { useSignup } from "../../hooks/useSignup";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const SignupPage = () => {
   const navigate = useNavigate();
@@ -93,6 +93,12 @@ const SignupPage = () => {
         <button disabled={isLoading} className="signBtn">
           Sign up
         </button>
+        <hr className="line" />
+        <Link to={"/login"} style={{ textDecoration: "none", color: "gray" }}>
+          <p className="already">
+            Already have an account <span className="loginSpan"> Log In</span>{" "}
+          </p>
+        </Link>
         {error && <div className="error">{error}</div>}
       </form>
     </div>

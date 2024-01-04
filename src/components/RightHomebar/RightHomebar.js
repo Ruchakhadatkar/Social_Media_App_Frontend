@@ -16,7 +16,15 @@ const RightHomebar = () => {
   const dispatch = useDispatch();
 
   const fetchFindFriend = async () => {
-    const data = await axios.get(`/api/friendRequest/findFriend?id=${user.id}`);
+    const data = await axios.get(
+      `/api/friendRequest/findFriend?id=${user.id}`,
+      {
+        headers: {
+          Accept: "application/json",
+          Authorization: `Bearer ${user.token}`,
+        },
+      }
+    );
     setFindFriends(data.data.data);
   };
 
@@ -26,8 +34,13 @@ const RightHomebar = () => {
   }, []);
 
   const getAllPost = async () => {
-    const data = await axios.get(`/api/post?id=${user.id}`);
-    console.log(data.data);
+    const data = await axios.get(`/api/post?id=${user.id}`, {
+      headers: {
+        Accept: "application/json",
+        Authorization: `Bearer ${user.token}`,
+      },
+    });
+    // console.log(data.data);
     dispatch({ type: FETCH_POSTS, payload: data.data });
     getAllFriendRequest();
   };
@@ -37,6 +50,11 @@ const RightHomebar = () => {
       senderUserId: user.id,
       receiverUserId: friend._id,
       status: "pending",
+    }, {
+      headers: {
+        Accept: "application/json",
+        Authorization: `Bearer ${user.token}`,
+      },
     });
     toast(`Friend reaquest sent to ${friend.name}`);
     fetchFindFriend();
@@ -45,22 +63,41 @@ const RightHomebar = () => {
   };
 
   const getAllFriendRequest = async () => {
-    const data = await axios.get(`/api/friendRequest?id=${user.id}`);
-    console.log(data);
+    const data = await axios.get(`/api/friendRequest?id=${user.id}`, {
+      headers: {
+        Accept: "application/json",
+        Authorization: `Bearer ${user.token}`,
+      },
+    });
+    // console.log(data);
     setFriendRequest(data.data.data);
   };
 
   const acceptFriendRequest = async (friendRequestId) => {
-    const data = await axios.put(`/api/friendRequest`, {
-      reqId: friendRequestId,
-      status: "accepted",
-    });
+    const data = await axios.put(
+      `/api/friendRequest`,
+      {
+        headers: {
+          Accept: "application/json",
+          Authorization: `Bearer ${user.token}`,
+        },
+      },
+      {
+        reqId: friendRequestId,
+        status: "accepted",
+      }
+    );
     getAllPost();
   };
 
   const declineFriendRequest = async (deleteRequestId) => {
     console.log(deleteRequestId);
-    const data = await axios.delete(`/api/friendRequest/${deleteRequestId}`);
+    const data = await axios.delete(`/api/friendRequest/${deleteRequestId}`, {
+      headers: {
+        Accept: "application/json",
+        Authorization: `Bearer ${user.token}`,
+      },
+    });
     console.log(data);
     getAllPost();
   };
@@ -72,7 +109,9 @@ const RightHomebar = () => {
           <p className="request">Friend Request</p>
           <p className="see">See All</p>
         </div>
-        {friendRequest.length == 0 && <h3 style={{fontWeight:"500"}}>No friend request</h3>}
+        {friendRequest.length == 0 && (
+          <h3 style={{ fontWeight: "500" }}>No friend request</h3>
+        )}
         {friendRequest.map((request) => {
           return (
             <div className="req" key={request._id}>
