@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from "react";
 import "./ProfilePage.css";
 import backgroundImg from "../../Asset/backgroundProfile.jpg";
-import ProfileImg from "../../Asset/profillePic.jpg";
 import axios from "axios";
 import { useParams } from "react-router-dom";
-import { BsTypeH1 } from "react-icons/bs";
+import { HiCamera } from "react-icons/hi2";
+import { useDispatch, useSelector } from "react-redux";
+import { LOGIN } from "../../Redux/User/userTypes";
 
 const ProfilePage = () => {
   const { id } = useParams();
+  const { user } = useSelector((state) => state.user);
   const [profileInfo, setProfileInfo] = useState(null);
+  const dispatch = useDispatch();
 
   const [image, setImage] = useState(null);
   const [isImageUploading, setIsImageUploading] = useState(false);
@@ -16,11 +19,13 @@ const ProfilePage = () => {
   useEffect(() => {
     getUserInfo();
   }, [id]);
+
   const getUserInfo = async () => {
     const data = await axios.get(`/api/user/userInfo/${id}`);
     console.log(data);
     setProfileInfo(data.data);
   };
+
   const handleImgUpload = async (e) => {
     setIsImageUploading(true);
     console.log("Working", isImageUploading);
@@ -49,8 +54,18 @@ const ProfilePage = () => {
     const data = await axios.put(`/api/user/${id}`, {
       profilePicture: img,
     });
+    const temp = {
+      name: user.name,
+      email: user.email,
+      token: user.token,
+      id: user.id,
+      profilePicture: img,
+    };
+    localStorage.setItem("user", JSON.stringify(temp));
+    dispatch({ type: LOGIN, payload: temp });
     getUserInfo();
   };
+
   return (
     <>
       {!profileInfo && <h1>Loading...</h1>}
@@ -61,13 +76,35 @@ const ProfilePage = () => {
               <img src={backgroundImg} className="backgroundImg" />
             </div>
             <div className="profile">
-              <img
-                src={profileInfo.user.profilePicture}
-                className="ProfileImage"
-              />
+              {/* <div className="edit"> */}
+              {profileInfo.user.profilePicture ? (
+                <img
+                className="ProfilePageImage"
+                  alt="profile Image"
+                  src={profileInfo.user.profilePicture}
+                />
+              ) : (
+                <img className="defaultImage" alt="profile picture" src="../defaultUser.jpg" />
+              )}
+
+              <label htmlFor="changeProfileImg" style={{ cursor: "pointer" }}>
+                <div className="editCamera">
+                  <HiCamera />
+                </div>
+                <input
+                  type="file"
+                  name="changeProfileImg"
+                  id="changeProfileImg"
+                  onChange={(e) => {
+                    handleImgUpload(e);
+                  }}
+                  hidden
+                />
+              </label>
+              {/* </div> */}
               <p>{profileInfo.user.name}</p>
               <p className="totalFriends">
-                Total Friends:{profileInfo.friends.length}{" "}
+                Total Friends: {profileInfo.friends.length}{" "}
               </p>
             </div>
             <div className="userInfo">
@@ -80,25 +117,12 @@ const ProfilePage = () => {
                   <span>DOB :</span> {profileInfo.user.dateofBirth}
                 </p>
                 <p>
-                  <span>Contact :</span>
-                  {profileInfo.user.contact}
+                  <span>Contact :</span> {profileInfo.user.contact}
                 </p>
               </div>
             </div>
             <div className="btn">
               <button className="friend">Friend</button>
-              <label htmlFor="changeProfileImg">
-                <button className="change">Change Profile</button>
-                <input
-                  type="file"
-                  name="changeProfileImg"
-                  id="changeProfileImg"
-                  onChange={(e) => {
-                    handleImgUpload(e);
-                  }}
-                  // hidden
-                />
-              </label>
             </div>
           </div>
         </div>

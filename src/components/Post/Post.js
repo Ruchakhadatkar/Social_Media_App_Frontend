@@ -2,10 +2,8 @@ import React, { useEffect, useState } from "react";
 import "./Post.css";
 import { FaGlobeAmericas } from "react-icons/fa";
 import { FiMoreHorizontal } from "react-icons/fi";
-import { AiOutlineDislike, AiOutlineLike } from "react-icons/ai";
+import { AiOutlineLike } from "react-icons/ai";
 import { FaRegComment } from "react-icons/fa";
-import Profilepic from "../../Asset/profillePic.jpg";
-import postImg from "../../Asset/post-pic.jpg";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { FETCH_POSTS } from "../../Redux/Posts/postsTypes";
@@ -13,6 +11,7 @@ import { Link } from "react-router-dom";
 import _debounce from "lodash/debounce";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
+import Timestamp from "react-timestamp";
 
 const Post = () => {
   const { user } = useSelector((state) => state.user);
@@ -20,17 +19,17 @@ const Post = () => {
   const [pageNo, setPageNo] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
   const dispatch = useDispatch();
+
   useEffect(() => {
     getAllPost();
-    console.log(posts);
-  }, [pageNo]);
+  }, [pageNo, user]);
+  console.log(user);
 
   const getAllPost = async () => {
     setIsLoading(true);
     const data = await axios.get(
       `/api/post?id=${user.id}&limit=5&skip=${pageNo * 5}`
     );
-    console.log(data);
     // setPosts(data.data);
     dispatch({ type: FETCH_POSTS, payload: [...posts, ...data.data] });
     setIsLoading(false);
@@ -62,6 +61,7 @@ const Post = () => {
       setPageNo((prev) => prev + 1);
     }
   };
+
   const debouncedHandleScroll = _debounce(handleScroll, 200);
   useEffect(() => {
     window.addEventListener("scroll", debouncedHandleScroll);
@@ -69,22 +69,24 @@ const Post = () => {
       window.removeEventListener("scroll", debouncedHandleScroll);
     };
   }, []);
+
   return (
     <>
-      {posts.map((post) => {
+      {posts.map((post, i) => {
         return (
-          <div className="postCotainer" key={post._id}>
+          <div className="postCotainer" key={i}>
             <div className="upperPost">
-              {/* <Link to={`/profile/${post.userId._id}`}> */}
-              <img src={post.userId.profilePicture} />
-              {/* </Link> */}
+              <img className="postImgUser" src={post.userId.profilePicture} />
               <div className="postTime">
-                <Link to={`/profile/${post.userId._id}`}>
+                <Link
+                  to={`/profile/${post.userId._id}`}
+                  style={{ textDecoration: "none", color: "black" }}
+                >
                   <p className="userNameP">{post.userId.name}</p>
                 </Link>
-
                 <p className="time">
-                  yesterday at 9pm <FaGlobeAmericas className="globe" />
+                  <Timestamp date={post.postDate} relative />{" "}
+                  <FaGlobeAmericas className="globe" />
                 </p>
               </div>
               <div className="listIcon">
@@ -99,8 +101,6 @@ const Post = () => {
             </div>
             {/* <hr /> */}
             <div className="lower">
-              {/* <div className="lowerIcon"> */}
-              {post.likedUsers.length}
               {checkedLikePost(post.likedUsers) ? (
                 <div
                   className="like"
@@ -108,11 +108,9 @@ const Post = () => {
                     disLikePost(post._id);
                   }}
                 >
-                  <AiOutlineLike
-                    className="icon"
-                    style={{ color: "blue" }}
-                  />
+                  <AiOutlineLike className="icon" style={{ color: "blue" }} />
                   <p>Dislike</p>
+                  {post.likedUsers.length}
                 </div>
               ) : (
                 <div
@@ -123,21 +121,19 @@ const Post = () => {
                 >
                   <AiOutlineLike className="icon" style={{ color: "grey" }} />
                   <p>Like</p>
+                  {post.likedUsers.length}
                 </div>
               )}
-
-
               <div className="comment like">
                 <FaRegComment className="iconC" />
                 <p>Comment</p>
               </div>
-              {/* </div> */}
             </div>
           </div>
         );
       })}
-      {isLoading && <Skeleton count={5} highlightColor="gray" />}
-      <h3>No more posts</h3>
+      {isLoading && <Skeleton count={2} highlightColor="black" />}
+      <h3 style={{ marginTop: "50px", fontWeight:"500" }}>No more posts</h3>
     </>
   );
 };

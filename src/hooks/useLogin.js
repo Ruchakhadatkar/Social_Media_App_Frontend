@@ -2,12 +2,11 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { LOGIN } from "../Redux/User/userTypes";
 
-
 export const useLogin = () => {
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(null);
   // const { dispatch } = useAuthContext();
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const login = async (email, password) => {
     setIsLoading(true);

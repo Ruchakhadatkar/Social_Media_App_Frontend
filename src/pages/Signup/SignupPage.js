@@ -17,31 +17,26 @@ const SignupPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    console.log(name, contact, email, dateofBirth, gender, city, password)
+    // console.log(name, contact, email, dateofBirth, gender, city, password)
     await signup(name, contact, email, dateofBirth, gender, city, password);
     navigate("/");
-
   };
   return (
     <div className="signupContainer">
       <form className="signup" onSubmit={handleSubmit}>
         <h3>Sign Up</h3>
-
         <label>Name</label>
         <input
           type="name"
           onChange={(e) => setName(e.target.value)}
           value={name}
         />
-
         <label>Contact</label>
         <input
           type="contact"
           onChange={(e) => setContact(e.target.value)}
           value={contact}
         />
-
         <label>Email</label>
         <input
           type="email"
@@ -54,7 +49,6 @@ const SignupPage = () => {
           onChange={(e) => setDateofBirth(e.target.value)}
           value={dateofBirth}
         />
-
         <label>Gender</label>
         <div className="genderType">
           <label htmlFor="">Male</label>
@@ -84,21 +78,18 @@ const SignupPage = () => {
             onClick={(e) => setGender(e.target.value)}
           />
         </div>
-
         <label>City</label>
         <input
           type="city"
           onChange={(e) => setCity(e.target.value)}
           value={city}
         />
-
         <label>Password</label>
         <input
           type="password"
           onChange={(e) => setPassword(e.target.value)}
           value={password}
         />
-
         <button disabled={isLoading} className="signBtn">
           Sign up
         </button>

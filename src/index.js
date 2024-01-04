@@ -4,7 +4,6 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
-import { AuthContextProvider } from "./context/AuthContext";
 import { CloudinaryContext } from "cloudinary-react";
 import { Provider } from "react-redux";
 import { store } from "./Redux/store";
@@ -19,13 +18,11 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-    <BrowserRouter>
-      {/* <AuthContextProvider> */}
+      <BrowserRouter>
         <CloudinaryContext cloudName={cloudinaryConfig.cloud_name}>
           <App />
         </CloudinaryContext>
-      {/* </AuthContextProvider> */}
-    </BrowserRouter>
+      </BrowserRouter>
     </Provider>
   </React.StrictMode>
 );

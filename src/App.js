@@ -7,6 +7,7 @@ import ProfilePage from "./pages/Profile/ProfilePage";
 import { Navigate, Outlet, Route, Routes } from "react-router-dom";
 
 function App() {
+
   const PrivateRoutes = () => {
     const user = JSON.parse(localStorage.getItem("user"));
     console.log("privateRoute", user);
@@ -21,6 +22,7 @@ function App() {
     console.log(auth);
     return !auth.token ? <Outlet /> : <Navigate to="/" />;
   };
+  
   return (
     <div className="App">
       <Navbar />

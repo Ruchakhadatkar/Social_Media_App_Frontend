@@ -1,6 +1,5 @@
 import React from "react";
 import "./LeftHomebar.css";
-import profilePic from "../../Asset/profillePic.jpg";
 import friends from "../../Asset/friends.png";
 import group from "../../Asset/group.png";
 import memories from "../../Asset/memories.png";
@@ -14,19 +13,28 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 const LeftHomebar = () => {
-  const {user} = useSelector(state=>state.user)
-  console.log(user)
+  const { user } = useSelector((state) => state.user);
+  console.log(user);
   return (
     <div className="left">
-      <Link to={`/profile/${user.id}`} style={{ textDecoration: "none", color: "black" }}>
+      <Link
+        to={`/profile/${user.id}`}
+        style={{ textDecoration: "none", color: "black" }}
+      >
         <div className="user info">
-          <img src={user.profilePicture} />
+          <img
+            
+            className="leftImg"
+            alt="user Image"
+            src={
+              user?.profilePicture ? user.profilePicture : "./defaultUser.jpg"
+            }
+          />
           <p>{user.name}</p>
         </div>
       </Link>
-
       <div className="friends info ">
-        <img src={friends} />
+        <img src={friends} className="friendIcon"/>
         <p>Friends </p>
       </div>
       <div className="group info">
@@ -34,15 +42,15 @@ const LeftHomebar = () => {
         <p>Groups</p>
       </div>
       <div className="memories info">
-        <img src={memories} />
+        <img src={memories} className="memory"/>
         <p>Memories</p>
       </div>
       <div className="save info">
-        <img src={save} />
+        <img src={save} className="saved"/>
         <p>Saved</p>
       </div>
       <div className="marketplace info">
-        <img src={market} />
+        <img src={market} className="market" />
         <p>Marketplace</p>
       </div>
       <div className="feed info">
@@ -58,7 +66,7 @@ const LeftHomebar = () => {
         <p>Events</p>
       </div>
       <div className="ads info">
-        <img src={ads} />
+        <img src={ads} className="adss"/>
         <p>Ads Manager</p>
       </div>
     </div>

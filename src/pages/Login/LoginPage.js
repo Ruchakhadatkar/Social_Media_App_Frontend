@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import  "./LoginPage.css";
+import "./LoginPage.css";
 import { useLogin } from "../../hooks/useLogin";
 import { Navigate, useNavigate } from "react-router-dom";
 
@@ -19,28 +19,25 @@ const LoginPage = () => {
 
   return (
     <div className="loginContainer">
-    <form className="login" onSubmit={handleSubmit}>
-      <h3>Login</h3>
-
-      <label>Email</label>
-      <input
-        type="email"
-        onChange={(e) => setEmail(e.target.value)}
-        value={email}
-      />
-
-      <label>Password</label>
-      <input
-        type="password"
-        onChange={(e) => setPassword(e.target.value)}
-        value={password}
-      />
-
-      <button disabled={isLoading} className="loginBtn">
-        Login
-      </button>
-      {error && <div className="error">{error}</div>}
-    </form>
+      <form className="login" onSubmit={handleSubmit}>
+        <h3>Login</h3>
+        <label>Email</label>
+        <input
+          type="email"
+          onChange={(e) => setEmail(e.target.value)}
+          value={email}
+        />
+        <label>Password</label>
+        <input
+          type="password"
+          onChange={(e) => setPassword(e.target.value)}
+          value={password}
+        />
+        <button disabled={isLoading} className="loginBtn">
+          Login
+        </button>
+        {error && <div className="error">{error}</div>}
+      </form>
     </div>
   );
 };

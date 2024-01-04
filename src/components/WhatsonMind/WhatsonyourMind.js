@@ -3,7 +3,6 @@ import "./WhatsonyourMind.css";
 import { IoVideocamSharp } from "react-icons/io5";
 import { MdOutlinePhotoLibrary } from "react-icons/md";
 import { GoSmiley } from "react-icons/go";
-import profilePic from "../../Asset/profillePic.jpg";
 import Post from "../Post/Post";
 import { Image, Transformation } from "cloudinary-react";
 import axios from "axios";
@@ -54,17 +53,25 @@ const WhatsonyourMind = () => {
     setCaption("");
     getAllPost();
   };
+
   const getAllPost = async () => {
     const data = await axios.get(`/api/post?id=${user.id}`);
     // console.log(data.data);
-    dispatch({ type: FETCH_POSTS , payload: data.data });
+    dispatch({ type: FETCH_POSTS, payload: data.data });
   };
+
   return (
     <>
       <div className="mainContainer">
         <div className="middleUpper">
           <div className="upper">
-            <img src={profilePic} />
+            <img
+            className="ImgContainer"
+              alt="user Image"
+              src={
+                user?.profilePicture ? user.profilePicture : "./defaultUser.jpg"
+              }
+            />
             <input
               type="text"
               value={caption}
@@ -80,7 +87,6 @@ const WhatsonyourMind = () => {
               <IoVideocamSharp className="videoLive icon" />
               <p>Video</p>
             </div>
-
             <label htmlFor="photoPicker">
               <div className=" activity">
                 <MdOutlinePhotoLibrary className="photos icon" />
@@ -96,13 +102,11 @@ const WhatsonyourMind = () => {
                 hidden
               />
             </label>
-
             <div className=" activity">
               <GoSmiley className="smiley icon" />
               <p>Feeling/Activity</p>
             </div>
           </div>
-
           {image && (
             <div>
               <Image publicId={image} className="preview">
@@ -113,9 +117,35 @@ const WhatsonyourMind = () => {
           <button onClick={userPost}>Post</button>
         </div>
         <div className="postContainer"></div>
-        {/* <ProfilePage/> */}
         <Post />
+
+        <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+        />
+        {/* Same as */}
         <ToastContainer />
+
+        {/* <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss={false}
+          draggable={false}
+          pauseOnHover
+          theme="light"
+        /> */}
       </div>
     </>
   );

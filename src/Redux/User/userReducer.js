@@ -1,13 +1,6 @@
 const initialState = {
-  user: JSON.parse(localStorage.getItem("user"))
+  user: JSON.parse(localStorage.getItem("user")),
 };
-// useEffect(() => {
-//     const user = JSON.parse(localStorage.getItem("user"));
-
-//     if (user) {
-//       dispatch({ type: "LOGIN", payload: user });
-//     }
-//   }, []);
 
 export const userReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -16,7 +9,7 @@ export const userReducer = (state = initialState, action) => {
 
     case "LOGOUT":
       return { user: null };
-
+      
     default:
       return state;
   }

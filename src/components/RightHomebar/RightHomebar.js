@@ -72,7 +72,7 @@ const RightHomebar = () => {
           <p className="request">Friend Request</p>
           <p className="see">See All</p>
         </div>
-        {friendRequest.length == 0 && <h3>No friend request</h3>}
+        {friendRequest.length == 0 && <h3 style={{fontWeight:"500"}}>No friend request</h3>}
         {friendRequest.map((request) => {
           return (
             <div className="req" key={request._id}>
@@ -107,40 +107,6 @@ const RightHomebar = () => {
             </div>
           );
         })}
-
-        {/* <div className="req">
-          <div className="userInfo">
-            <div className="userreq">
-              {" "}
-              <img src={ProfilePic} />
-              <div className="name">
-                <p className="user">User Name</p>
-                <p className="mutual">11 mutual friends</p>
-              </div>
-            </div>
-          </div>
-          <div className="btns">
-            <button className="crnfm">Confirm</button>
-            <button className="delt">Delete</button>
-          </div>
-        </div>
-
-        <div className="req">
-          <div className="userInfo">
-            <div className="userreq">
-              {" "}
-              <img src={ProfilePic} />
-              <div className="name">
-                <p className="user">User Name</p>
-                <p className="mutual">11 mutual friends</p>
-              </div>
-            </div>
-          </div>
-          <div className="btns">
-            <button className="crnfm">Confirm</button>
-            <button className="delt">Delete</button>
-          </div>
-        </div> */}
       </div>
       <div className="findFriend">
         <div className="head">
@@ -168,41 +134,34 @@ const RightHomebar = () => {
             </div>
           );
         })}
-
-        {/* <div className="friendInfo">
-          <div className="profileFrd">
-            <img src={ProfilePic} />
-            <p className="userName">Tom & Jerry</p>
-          </div>
-          <div className="btns">
-            <button className="addFrnd">Add Friend</button>
-            <button className="cancel">Cancel</button>
-          </div>
-        </div>
-
-        <div className="friendInfo">
-          <div className="profileFrd">
-            <img src={ProfilePic} />
-            <p className="userName">Tom & Jerry</p>
-          </div>
-          <div className="btns">
-            <button className="addFrnd">Add Friend</button>
-            <button className="cancel">Cancel</button>
-          </div>
-        </div>
-
-        <div className="friendInfo">
-          <div className="profileFrd">
-            <img src={ProfilePic} />
-            <p className="userName">Tom & Jerry</p>
-          </div>
-          <div className="btns">
-            <button className="addFrnd">Add Friend</button>
-            <button className="cancel">Cancel</button>
-          </div>
-        </div> */}
       </div>
+
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
+      {/* Same as */}
       <ToastContainer />
+      {/* <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss={false}
+        draggable={false}
+        pauseOnHover
+        theme="light"
+      /> */}
     </div>
   );
 };
