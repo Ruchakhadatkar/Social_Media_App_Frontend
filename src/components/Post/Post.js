@@ -90,7 +90,7 @@ const Post = () => {
 
   return (
     <>
-      {posts.map((post, i) => {
+      {posts.length >0 && posts.map((post, i) => {
         return (
           <div className="postCotainer" key={i}>
             <div className="upperPost">
