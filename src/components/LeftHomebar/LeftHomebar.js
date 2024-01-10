@@ -23,7 +23,6 @@ const LeftHomebar = () => {
       >
         <div className="user info">
           <img
-            
             className="leftImg"
             alt="user Image"
             src={
@@ -34,7 +33,7 @@ const LeftHomebar = () => {
         </div>
       </Link>
       <div className="friends info ">
-        <img src={friends} className="friendIcon"/>
+        <img src={friends} className="friendIcon" />
         <p>Friends </p>
       </div>
       <div className="group info">
@@ -42,11 +41,11 @@ const LeftHomebar = () => {
         <p>Groups</p>
       </div>
       <div className="memories info">
-        <img src={memories} className="memory"/>
+        <img src={memories} className="memory" />
         <p>Memories</p>
       </div>
       <div className="save info">
-        <img src={save} className="saved"/>
+        <img src={save} className="saved" />
         <p>Saved</p>
       </div>
       <div className="marketplace info">
@@ -66,7 +65,7 @@ const LeftHomebar = () => {
         <p>Events</p>
       </div>
       <div className="ads info">
-        <img src={ads} className="adss"/>
+        <img src={ads} className="adss" />
         <p>Ads Manager</p>
       </div>
     </div>

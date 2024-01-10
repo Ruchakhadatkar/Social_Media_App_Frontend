@@ -27,12 +27,13 @@ const Navbar = () => {
     <div className="navContainer">
       <div className="navbar">
         <div className="startNav">
-          <h4
+          <h4 className="appname"
             onClick={() => {
               navigate("/");
             }}
           >
-            Social
+            <span> Social</span> App
+           
           </h4>
           <div className="search">
             <div className="searchBar">
@@ -95,14 +96,13 @@ const Navbar = () => {
                   <h3 className="drop">Profile</h3>
                 </Link>
 
-                <Link
-                  to="/signup"
+                <div
                   style={{ textDecoration: "none", color: "gray" }}
                 >
                   <h3 className="drop" onClick={handleLogout}>
                     Logout
                   </h3>
-                </Link>
+                </div>
               </div>
             ) : (
               <></>

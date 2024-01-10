@@ -16,10 +16,21 @@
 }
 .startNav {
   display: flex;
+  gap: 4px;
+  margin-left: 6px;
 }
-h4 {
+.appname {
+  margin-top: 7px;
   margin-bottom: 0px;
   cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+}
+.appname span {
+  font-size: 22px;
+  font-weight: 700;
+  color: #0866ff;
+  display: block;
 }
 .search {
   margin: auto;
@@ -55,8 +66,8 @@ h4 {
 .middleNav {
   display: flex;
   font-size: 28px;
-  gap: 87px;
-  margin: 18px 250px;
+  gap: 88px;
+  margin: 18px 214px;
   padding: 0px;
   color: gray;
   margin-bottom: 6px;
@@ -64,15 +75,15 @@ h4 {
 .endNav {
   display: flex;
   font-size: 24px;
-  gap: 26px;
+  gap: 28px;
   padding: 0px;
-  margin: 14px 28px;
+  margin: 14px 56px;
   margin-right: 14px;
 }
 ul {
   list-style: none;
 }
-ul li{
+ul li {
   cursor: pointer;
 }
 .menugrid {
@@ -107,7 +118,7 @@ ul li{
   width: 44px;
   height: 39px;
 }
-.endNavImg  {
+.endNavImg {
   box-sizing: border-box;
   width: 38px;
   height: 36px;

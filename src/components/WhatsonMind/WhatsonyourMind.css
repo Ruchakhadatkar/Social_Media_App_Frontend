@@ -14,7 +14,7 @@
   border-radius: 48px;
   font-size: 17px;
   height: 38px;
-  width: 100%;
+  width: 99%;
   margin-right: 4px;
   background-color: #f0f2f5;
   border: none;
@@ -74,8 +74,8 @@ hr {
 }
 button {
   margin: 21px 0px;
-  margin-top: 16px;
-  width: 95%;
+  margin-top: 18px;
+  width: 98%;
   height: 34px;
   border-radius: 7px;
   border: none;
@@ -97,8 +97,8 @@ button {
 }
 .preview {
   box-sizing: border-box;
-  width: 106px;
-  height: 74px;
+  width: 100%;
+  height: 100%;
   margin: 2px 0px;
   border-radius: 4px;
   margin-top: 13px;

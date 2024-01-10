@@ -143,21 +143,7 @@ const WhatsonyourMind = () => {
           pauseOnHover
           theme="light"
         />
-        {/* Same as */}
         <ToastContainer />
-
-        {/* <ToastContainer
-          position="top-right"
-          autoClose={5000}
-          hideProgressBar={false}
-          newestOnTop={false}
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss={false}
-          draggable={false}
-          pauseOnHover
-          theme="light"
-        /> */}
       </div>
     </>
   );

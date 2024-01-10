@@ -16,21 +16,19 @@ import Timestamp from "react-timestamp";
 const Post = () => {
   const { user } = useSelector((state) => state.user);
   const { posts } = useSelector((state) => state.posts);
-  const [pageNo, setPageNo] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
   const dispatch = useDispatch();
-  const [flag, setFlag] = useState(true);
 
   useEffect(() => {
     getAllPost();
-  }, [pageNo, user]);
+  }, [ user]);
   // console.log(user);
 
   const getAllPost = async () => {
     setIsLoading(true);
     console.log("getallpostRunning")
     const data = await axios.get(
-      `/api/post?id=${user.id}&limit=5&skip=${pageNo * 5}`,
+      `/api/post?id=${user.id}`,
       {
         headers: {
           Accept: "application/json",
@@ -40,7 +38,7 @@ const Post = () => {
     );
     console.log(data)
     // setPosts(data.data);
-    dispatch({ type: FETCH_POSTS, payload: [...posts, ...data.data] });
+    dispatch({ type: FETCH_POSTS, payload: data.data });
     setIsLoading(false);
   };
 
@@ -87,20 +85,8 @@ const Post = () => {
     return isLiked;
   };
 
-  const handleScroll = () => {
-    const { scrollTop, clientHeight, scrollHeight } = document.documentElement;
-    if (scrollTop + clientHeight + 1 >= scrollHeight) {
-      setPageNo((prev) => prev + 1);
-    }
-  };
 
-  const debouncedHandleScroll = _debounce(handleScroll, 200);
-  useEffect(() => {
-    window.addEventListener("scroll", debouncedHandleScroll);
-    return () => {
-      window.removeEventListener("scroll", debouncedHandleScroll);
-    };
-  }, []);
+
 
   return (
     <>
@@ -164,7 +150,7 @@ const Post = () => {
           </div>
         );
       })}
-      {isLoading && <Skeleton count={2} highlightColor="black" />}
+      {/* {isLoading && <Skeleton count={2} highlightColor="black" />} */}
       <h3 style={{ marginTop: "50px", fontWeight: "500" }}>No more posts</h3>
     </>
   );

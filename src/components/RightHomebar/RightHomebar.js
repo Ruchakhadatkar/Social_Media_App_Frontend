@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import "./RightHomebar.css";
-import ProfilePic from "../../Asset/profillePic.jpg";
 import { IoSearch } from "react-icons/io5";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
@@ -46,16 +45,20 @@ const RightHomebar = () => {
   };
 
   const sendFriendRequest = async (friend) => {
-    const data = await axios.post(`/api/friendRequest`, {
-      senderUserId: user.id,
-      receiverUserId: friend._id,
-      status: "pending",
-    }, {
-      headers: {
-        Accept: "application/json",
-        Authorization: `Bearer ${user.token}`,
+    const data = await axios.post(
+      `/api/friendRequest`,
+      {
+        senderUserId: user.id,
+        receiverUserId: friend._id,
+        status: "pending",
       },
-    });
+      {
+        headers: {
+          Accept: "application/json",
+          Authorization: `Bearer ${user.token}`,
+        },
+      }
+    );
     toast(`Friend reaquest sent to ${friend.name}`);
     fetchFindFriend();
     getAllFriendRequest();
@@ -118,7 +121,7 @@ const RightHomebar = () => {
               <div className="userInfo">
                 <div className="userreq">
                   {" "}
-                  <img src={ProfilePic} />
+                  <img src={request.profilePicture} />
                   <div className="name">
                     <p className="user">{request.senderUserId.name}</p>
                     <p className="mutual">11 mutual friends</p>
@@ -153,10 +156,11 @@ const RightHomebar = () => {
           <IoSearch className="searchFrend" />
         </div>
         {findFriends.map((friend) => {
+          console.log(friend);
           return (
             <div className="friendInfo" key={friend._id}>
               <div className="profileFrd">
-                <img src={ProfilePic} />
+                <img src={friend.profilePicture} />
                 <p className="userName">{friend.name}</p>
               </div>
               <div className="btns">
