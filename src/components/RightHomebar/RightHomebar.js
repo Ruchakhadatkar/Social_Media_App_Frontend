@@ -12,6 +12,7 @@ const RightHomebar = () => {
   const [friendRequest, setFriendRequest] = useState([]);
 
   const { user } = useSelector((state) => state.user);
+  console.log(user)
   const dispatch = useDispatch();
 
   const fetchFindFriend = async () => {
@@ -77,31 +78,32 @@ const RightHomebar = () => {
   };
 
   const acceptFriendRequest = async (friendRequestId) => {
+    console.log(friendRequestId)
     const data = await axios.put(
       `/api/friendRequest`,
+      {
+        reqId: friendRequestId,
+        status: "accepted",
+      },
       {
         headers: {
           Accept: "application/json",
           Authorization: `Bearer ${user.token}`,
         },
       },
-      {
-        reqId: friendRequestId,
-        status: "accepted",
-      }
     );
     getAllPost();
   };
 
   const declineFriendRequest = async (deleteRequestId) => {
-    console.log(deleteRequestId);
+    // console.log(deleteRequestId);
     const data = await axios.delete(`/api/friendRequest/${deleteRequestId}`, {
       headers: {
         Accept: "application/json",
         Authorization: `Bearer ${user.token}`,
       },
     });
-    console.log(data);
+    // console.log(data);
     getAllPost();
   };
 
@@ -121,7 +123,7 @@ const RightHomebar = () => {
               <div className="userInfo">
                 <div className="userreq">
                   {" "}
-                  <img src={request.profilePicture} />
+                  <img src={request.senderUserId.profilePicture} />
                   <div className="name">
                     <p className="user">{request.senderUserId.name}</p>
                     <p className="mutual">11 mutual friends</p>
