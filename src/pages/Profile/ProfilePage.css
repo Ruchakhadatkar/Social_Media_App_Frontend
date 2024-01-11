@@ -83,8 +83,9 @@ h3.heading {
 .userInfo .info {
   display: flex;
   margin: 0px;
-  justify-content: space-evenly;
+  justify-content: space-between;
   margin-right: 17px;
+  margin-left: 5px;
 }
 .userInfo .info span {
   font-size: 16px;

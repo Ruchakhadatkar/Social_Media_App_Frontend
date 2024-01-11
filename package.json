@@ -2,7 +2,6 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
-  "proxy": "https://social-app-vt3a.onrender.com",
   "dependencies": {
     "@cloudinary/react": "^1.11.2",
     "@testing-library/jest-dom": "^5.17.0",

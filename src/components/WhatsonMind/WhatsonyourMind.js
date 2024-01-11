@@ -45,30 +45,34 @@ const WhatsonyourMind = () => {
     if (isImageUploading) {
       return toast("Image Uploading...");
     }
-    const data = await axios.post(`/api/post`, {
-      caption: caption,
-      image: image,
-      userId: user.id,
-    },
-    {
-      headers: {
-        Accept: "application/json",
-        Authorization: `Bearer ${user.token}`,
+    const data = await axios.post(
+      `https://social-app-vt3a.onrender.com/api/post`,
+      {
+        caption: caption,
+        image: image,
+        userId: user.id,
       },
-    },);
+      {
+        headers: {
+          Accept: "application/json",
+          Authorization: `Bearer ${user.token}`,
+        },
+      }
+    );
     setCaption("");
     getAllPost();
   };
 
   const getAllPost = async () => {
-    const data = await axios.get(`/api/post?id=${user.id}&limit=5&skip=0`,
-    {
-      headers: {
-        Accept: "application/json",
-        Authorization: `Bearer ${user.token}`,
-      },
-    },);
-    // console.log(data.data);
+    const data = await axios.get(
+      `https://social-app-vt3a.onrender.com/api/post?id=${user.id}&limit=5&skip=0`,
+      {
+        headers: {
+          Accept: "application/json",
+          Authorization: `Bearer ${user.token}`,
+        },
+      }
+    );
     dispatch({ type: FETCH_POSTS, payload: data.data });
   };
 
@@ -78,7 +82,7 @@ const WhatsonyourMind = () => {
         <div className="middleUpper">
           <div className="upper">
             <img
-            className="ImgContainer"
+              className="ImgContainer"
               alt="user Image"
               src={
                 user?.profilePicture ? user.profilePicture : "./defaultUser.jpg"

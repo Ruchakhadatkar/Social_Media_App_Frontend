@@ -27,13 +27,13 @@ const Navbar = () => {
     <div className="navContainer">
       <div className="navbar">
         <div className="startNav">
-          <h4 className="appname"
+          <h4
+            className="appname"
             onClick={() => {
               navigate("/");
             }}
           >
             <span> Social</span> App
-           
           </h4>
           <div className="search">
             <div className="searchBar">
@@ -77,7 +77,7 @@ const Navbar = () => {
             <span>
               <div className="profile">
                 <img
-                className="endNavImg"
+                  className="endNavImg"
                   alt="user Image"
                   src={
                     user?.profilePicture
@@ -88,17 +88,14 @@ const Navbar = () => {
               </div>
             </span>
             {user ? (
-              <div className="dropdown-content" style={{cursor:"pointer"}}>
+              <div className="dropdown-content" style={{ cursor: "pointer" }}>
                 <Link
                   to={`/profile/${user.id}`}
                   style={{ textDecoration: "none", color: "gray" }}
                 >
                   <h3 className="drop">Profile</h3>
                 </Link>
-
-                <div
-                  style={{ textDecoration: "none", color: "gray" }}
-                >
+                <div style={{ textDecoration: "none", color: "gray" }}>
                   <h3 className="drop" onClick={handleLogout}>
                     Logout
                   </h3>

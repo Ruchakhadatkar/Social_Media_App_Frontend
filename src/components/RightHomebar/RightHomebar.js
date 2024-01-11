@@ -12,12 +12,11 @@ const RightHomebar = () => {
   const [friendRequest, setFriendRequest] = useState([]);
 
   const { user } = useSelector((state) => state.user);
-  console.log(user)
   const dispatch = useDispatch();
 
   const fetchFindFriend = async () => {
     const data = await axios.get(
-      `/api/friendRequest/findFriend?id=${user.id}`,
+      `https://social-app-vt3a.onrender.com/api/friendRequest/findFriend?id=${user.id}`,
       {
         headers: {
           Accept: "application/json",
@@ -34,20 +33,22 @@ const RightHomebar = () => {
   }, []);
 
   const getAllPost = async () => {
-    const data = await axios.get(`/api/post?id=${user.id}`, {
-      headers: {
-        Accept: "application/json",
-        Authorization: `Bearer ${user.token}`,
-      },
-    });
-    // console.log(data.data);
+    const data = await axios.get(
+      `https://social-app-vt3a.onrender.com/api/post?id=${user.id}`,
+      {
+        headers: {
+          Accept: "application/json",
+          Authorization: `Bearer ${user.token}`,
+        },
+      }
+    );
     dispatch({ type: FETCH_POSTS, payload: data.data });
     getAllFriendRequest();
   };
 
   const sendFriendRequest = async (friend) => {
     const data = await axios.post(
-      `/api/friendRequest`,
+      `https://social-app-vt3a.onrender.com/api/friendRequest`,
       {
         senderUserId: user.id,
         receiverUserId: friend._id,
@@ -67,20 +68,21 @@ const RightHomebar = () => {
   };
 
   const getAllFriendRequest = async () => {
-    const data = await axios.get(`/api/friendRequest?id=${user.id}`, {
-      headers: {
-        Accept: "application/json",
-        Authorization: `Bearer ${user.token}`,
-      },
-    });
-    // console.log(data);
+    const data = await axios.get(
+      `https://social-app-vt3a.onrender.com/api/friendRequest?id=${user.id}`,
+      {
+        headers: {
+          Accept: "application/json",
+          Authorization: `Bearer ${user.token}`,
+        },
+      }
+    );
     setFriendRequest(data.data.data);
   };
 
   const acceptFriendRequest = async (friendRequestId) => {
-    console.log(friendRequestId)
     const data = await axios.put(
-      `/api/friendRequest`,
+      `https://social-app-vt3a.onrender.com/api/friendRequest`,
       {
         reqId: friendRequestId,
         status: "accepted",
@@ -90,20 +92,21 @@ const RightHomebar = () => {
           Accept: "application/json",
           Authorization: `Bearer ${user.token}`,
         },
-      },
+      }
     );
     getAllPost();
   };
 
   const declineFriendRequest = async (deleteRequestId) => {
-    // console.log(deleteRequestId);
-    const data = await axios.delete(`/api/friendRequest/${deleteRequestId}`, {
-      headers: {
-        Accept: "application/json",
-        Authorization: `Bearer ${user.token}`,
-      },
-    });
-    // console.log(data);
+    const data = await axios.delete(
+      `https://social-app-vt3a.onrender.com/api/friendRequest/${deleteRequestId}`,
+      {
+        headers: {
+          Accept: "application/json",
+          Authorization: `Bearer ${user.token}`,
+        },
+      }
+    );
     getAllPost();
   };
 
@@ -193,20 +196,7 @@ const RightHomebar = () => {
         pauseOnHover
         theme="light"
       />
-      {/* Same as */}
       <ToastContainer />
-      {/* <ToastContainer
-        position="top-right"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss={false}
-        draggable={false}
-        pauseOnHover
-        theme="light"
-      /> */}
     </div>
   );
 };

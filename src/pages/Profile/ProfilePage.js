@@ -21,20 +21,21 @@ const ProfilePage = () => {
   }, [id]);
 
   const getUserInfo = async () => {
-    const data = await axios.get(`/api/user/userInfo/${id}`,
-    {
-      headers: {
-        Accept: "application/json",
-        Authorization: `Bearer ${user.token}`,
-      },
-    },);
+    const data = await axios.get(
+      `https://social-app-vt3a.onrender.com/api/user/userInfo/${id}`,
+      {
+        headers: {
+          Accept: "application/json",
+          Authorization: `Bearer ${user.token}`,
+        },
+      }
+    );
     console.log(data);
     setProfileInfo(data.data);
   };
 
   const handleImgUpload = async (e) => {
     setIsImageUploading(true);
-    console.log("Working", isImageUploading);
     if (isImageUploading == true) {
       return window.alert("Image is uploading");
     }
@@ -50,22 +51,25 @@ const ProfilePage = () => {
       }
     );
     const data = await response.json();
-    console.log(data);
+    // console.log(data);
     setImage(data.secure_url);
     setIsImageUploading(false);
     const uploaddp = await uploadProfilePicture(data.secure_url);
   };
 
   const uploadProfilePicture = async (img) => {
-    const data = await axios.put(`/api/user/${id}`, {
-      profilePicture: img,
-    },
-    {
-      headers: {
-        Accept: "application/json",
-        Authorization: `Bearer ${user.token}`,
+    const data = await axios.put(
+      `https://social-app-vt3a.onrender.com/api/user/${id}`,
+      {
+        profilePicture: img,
       },
-    },);
+      {
+        headers: {
+          Accept: "application/json",
+          Authorization: `Bearer ${user.token}`,
+        },
+      }
+    );
     const temp = {
       name: user.name,
       email: user.email,
@@ -91,12 +95,16 @@ const ProfilePage = () => {
               {/* <div className="edit"> */}
               {profileInfo.user.profilePicture ? (
                 <img
-                className="ProfilePageImage"
+                  className="ProfilePageImage"
                   alt="profile Image"
                   src={profileInfo.user.profilePicture}
                 />
               ) : (
-                <img className="defaultImage" alt="profile picture" src="../defaultUser.jpg" />
+                <img
+                  className="defaultImage"
+                  alt="profile picture"
+                  src="../defaultUser.jpg"
+                />
               )}
 
               <label htmlFor="changeProfileImg" style={{ cursor: "pointer" }}>
@@ -113,7 +121,6 @@ const ProfilePage = () => {
                   hidden
                 />
               </label>
-              {/* </div> */}
               <p>{profileInfo.user.name}</p>
               <p className="totalFriends">
                 Total Friends: {profileInfo.friends.length}{" "}
