@@ -20,7 +20,7 @@ export const useSignup = () => {
     setIsLoading(true);
     setError(null);
 
-    const response = await fetch("/api/user/signup", {
+    const response = await fetch("https://social-app-vt3a.onrender.com/api/user/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
