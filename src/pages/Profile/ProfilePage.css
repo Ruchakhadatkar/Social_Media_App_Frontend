@@ -135,3 +135,9 @@ p.totalFriends {
   /* border: 1px solid gray; */
   border-radius: 50px;
 }
+.user-name:hover {
+color: #0866ff;
+}
+.editCamera:hover{
+  color: #0866ff;
+}

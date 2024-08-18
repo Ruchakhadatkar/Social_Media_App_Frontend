@@ -84,7 +84,17 @@ const ProfilePage = () => {
 
   return (
     <>
-      {!profileInfo && <h1>Loading...</h1>}
+      {!profileInfo && (
+        <h1
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          Loading...
+        </h1>
+      )}
       {profileInfo && (
         <div className="MainContainer">
           <div className="profileContainer">
@@ -121,7 +131,7 @@ const ProfilePage = () => {
                   hidden
                 />
               </label>
-              <p>{profileInfo.user.name}</p>
+              <p className="user-name">{profileInfo.user.name}</p>
               <p className="totalFriends">
                 Total Friends: {profileInfo.friends.length}{" "}
               </p>
