@@ -151,3 +151,13 @@ ul li {
 .dropdown:hover .dropdown-content {
   display: block;
 }
+.middleNav li:hover{
+color: #0866ff;
+}
+.endNav li:hover{
+  background: #0866ff;
+  color: #ffffff;
+}
+.search .searchI:hover{
+color: #0866ff;
+}
