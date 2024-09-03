@@ -21,65 +21,60 @@ const ProfilePage = () => {
   }, [id]);
 
   const getUserInfo = async () => {
-    const data = await axios.get(
-      `https://social-app-vt3a.onrender.com/api/user/userInfo/${id}`,
-      {
-        headers: {
-          Accept: "application/json",
-          Authorization: `Bearer ${user.token}`,
-        },
+    try {
+      const { data } = await axios.get(
+        `https://social-app-vt3a.onrender.com/api/user/userInfo/${id}`,
+        {
+          headers: {
+            Accept: "application/json",
+            Authorization: `Bearer ${user.token}`,
+          },
+        }
+      );
+      setProfileInfo(data);
+    } catch (error) {
+      console.error("Error fetching user info:", error.response || error);
+      if (error.response && error.response.status === 401) {
+        alert("Unauthorized access. Please log in again.");
+        // Handle logout or redirect to login page here
       }
-    );
-    console.log(data);
-    setProfileInfo(data.data);
-  };
-
-  const handleImgUpload = async (e) => {
-    setIsImageUploading(true);
-    if (isImageUploading == true) {
-      return window.alert("Image is uploading");
     }
-    const file = e.target.files[0];
-    const formData = new FormData();
-    formData.append("file", file);
-    formData.append("upload_preset", "socialMedia");
-    const response = await fetch(
-      "https://api.cloudinary.com/v1_1/ditqh6dqi/image/upload",
-      {
-        method: "POST",
-        body: formData,
-      }
-    );
-    const data = await response.json();
-    // console.log(data);
-    setImage(data.secure_url);
-    setIsImageUploading(false);
-    const uploaddp = await uploadProfilePicture(data.secure_url);
   };
 
-  const uploadProfilePicture = async (img) => {
-    const data = await axios.put(
-      `https://social-app-vt3a.onrender.com/api/user/${id}`,
-      {
-        profilePicture: img,
-      },
-      {
-        headers: {
-          Accept: "application/json",
-          Authorization: `Bearer ${user.token}`,
+  const handleImgUpload = async (img) => {
+    try {
+      const { data } = await axios.put(
+        `https://social-app-vt3a.onrender.com/api/user/${id}`,
+        {
+          profilePicture: img,
         },
+        {
+          headers: {
+            Accept: "application/json",
+            Authorization: `Bearer ${user.token}`,
+          },
+        }
+      );
+      const temp = {
+        name: user.name,
+        email: user.email,
+        token: user.token,
+        id: user.id,
+        profilePicture: img,
+      };
+      localStorage.setItem("user", JSON.stringify(temp));
+      dispatch({ type: LOGIN, payload: temp });
+      getUserInfo();
+    } catch (error) {
+      console.error(
+        "Error uploading profile picture:",
+        error.response || error
+      );
+      if (error.response && error.response.status === 401) {
+        alert("Unauthorized access. Please log in again.");
+        // Handle logout or redirect to login page here
       }
-    );
-    const temp = {
-      name: user.name,
-      email: user.email,
-      token: user.token,
-      id: user.id,
-      profilePicture: img,
-    };
-    localStorage.setItem("user", JSON.stringify(temp));
-    dispatch({ type: LOGIN, payload: temp });
-    getUserInfo();
+    }
   };
 
   return (
